@@ -11,7 +11,7 @@
 
 # 작성법
 * 폴더와 파일명은 될 수 있으면 영문으로 작성한다.
-* Github-Flavoured Markdown으로 작성하고 파일 확장자는 md.
+* Github-Flavoured Markdown으로 작성하고 파일 확장자는 .md 로 사용한다.
 * 참고한 Reference나 관련된 정보는 외부 링크를 사용한다.
 
 
