@@ -2,7 +2,7 @@
 * [GitHub Guides - Mastering Markdown](https://guides.github.com/features/mastering-markdown/) 영어가 가능하다면 공식사이트에 가서 문법을 직접 확인해보길 바란다. 굉장히 자세하게 기술한다. 대부분은 이 글을 읽고 예시를 가져와서 정리했다. 
 * 본인은 문법을 바로 익힐 수 있게 적어 놓았기 때문에 HTML과 연관시켜서 tag로 이해를 하고 싶다면 [Markdowm 사용법 총정리](https://heropy.blog/2017/09/30/markdown/)를 참고하길 바란다.
 
-
+<br><br>
 
 # Markdown 사용법 
 
@@ -21,7 +21,7 @@ Markdown이 적용되면 아래와 같다. <br>
 
 ## Header
 ```
-Example
+예시
 # This is an <h1> tag
 ## This is an <h2> tag
 ###### This is an <h6> tag
@@ -34,7 +34,7 @@ Example
 
 ## 강조
 ```
-Example
+예시
 *This text will be italic*
 _This will also be italic_
 
@@ -58,6 +58,7 @@ _You **can** combine them_
 
 ## 이미지 삽입
 ```
+예시
 ![GitHub Logo](/images/logo.png)
 
 ```
@@ -69,6 +70,7 @@ _You **can** combine them_
 
 ## 웹 페이지 링크
 ```
+예시
 [GitHub](http://github.com)
 ```
 -------------------------------
@@ -79,6 +81,7 @@ _You **can** combine them_
 
 ## Blockquotes
 ```
+예시
 As Kanye West said:
 
 > We're living the future so
@@ -93,15 +96,17 @@ As Kanye West said:
 
 ## Inline code
 ```
+예시
 I think you should use an
 `<addr>` element here instead.
 ```
 --------------------------------
 * I think you should use an
-`원하는 부분만을 코드화할 수 있다.` element here instead.
+`원하는 부분만을 inline 코드화할 수 있다.` element here instead.
 
 ## Syntax highlighting 
 ```ruby
+예시
 require 'redcarpet'
 markdown = Redcarpet.new("Hello World!")
 puts markdown.to_html
