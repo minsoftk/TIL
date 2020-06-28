@@ -5,7 +5,7 @@
   찾아보기 쉽게 내역을 이 md에 표시해준다.
 * 공부의 목적을 가지고 꾸준히 작성해가는 것을 목표로 한다.
 
-RingoPPA(https://github.com/ksu3101/TIL)님, Namjun Kim(https://github.com/namjunemy/TIL)님의 Github TIL을 보고 영감을 얻어서 만들었습니다. 
+[RingoPPA](https://github.com/ksu3101/TIL)님, [Namjun Kim](https://github.com/namjunemy/TIL)님의 Github TIL을 보고 영감을 얻어서 만들었습니다. 
 
 
 
