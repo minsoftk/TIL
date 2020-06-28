@@ -1,7 +1,10 @@
-#참고 [GitHub Guides - Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
+
+* [GitHub Guides - Mastering Markdown](https://guides.github.com/features/mastering-markdown/) 영어가 가능하다면 공식사이트에 가서 문법을 직접 확인해보길 바란다. 굉장히 자세하게 기술한다. 대부분은 이 글을 읽고 예시를 가져와서 정리했다. 
+* 본인은 문법을 바로 익힐 수 있게 적어 놓았기 때문에 HTML과 연관시켜서 tag로 이해를 하고 싶다면 [Markdowm 사용법 총정리](https://heropy.blog/2017/09/30/markdown/)를 참고하길 바란다.
 
 
-# Syntax Guide 
+
+# Markdown 사용법 
 
 ## **Bold**(강조) , *italic*(이탤릭체)
 ```
@@ -105,3 +108,8 @@ puts markdown.to_html
 ```
 ---------------------------------------
 * code를 묶을때  ```ruby로 적어준다.
+
+
+
+
+
