@@ -40,13 +40,14 @@ __This will also be bold__
 
 _You **can** combine them_
 ```
-*This text will be italic*
-_This will also be italic_
+----------------------------------
+* >*This text will be italic*
+  >_This will also be italic_
 
-**This text will be bold**
-__This will also be bold__
+  >**This text will be bold**
+  >__This will also be bold__
 
-_You **can** combine them_
+  >_You **can** combine them_
 
 
 
@@ -85,7 +86,7 @@ As Kanye West said:
 > We're living the future so
 > the present is our past.
 -------------------------------
->를 사용해서 블럭화를 할 수 있다.
+* '>'를 사용해서 블럭화를 할 수 있다.
 
 ## Inline code
 ```
