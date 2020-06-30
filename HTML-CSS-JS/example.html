@@ -3,16 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS states</title>
+    <title>ㅆㄱ무</title>
 </head>
 <body>
     <style>
     .box{
-        background-color:red;
+        width:500px;
+        height:500px;
+        background:red;
+       transform:rotate(20deg);
+        }
+        //전부 바꾸고 싶을땐 transition:all 로 적는다.
+    .box:hover{
+        background-color:green;
         font-size:40px;
         }
     </style>
-
     <span class="box">
         lalala
     </span>
