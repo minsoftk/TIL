@@ -17,8 +17,8 @@
 ## 분류
 
 ### Markdown
-* markdown의 사용법()
+* [markdown의 사용법](https://github.com/MinsoftK/TIL/blob/master/Markdown/howtouse-Markdown.md)
 
 
 ### VSC 활용꿀팁
-* 
+* [VSC 단축키 꿀팁](https://github.com/MinsoftK/TIL/blob/master/VSC/VisualStudioCode.md)
