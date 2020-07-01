@@ -28,7 +28,7 @@
 
 ## 2-9. Transformations
 ### Transformations이란?
-* html문서의 element들을 변경, 모습이 변하게 하는 효과들.
+* html문서의 element들을 변경, 모습이 변하게 하는 효과들.(element의 모습을 바꿀 수 있다.)
 
 ```ruby
  <style>
