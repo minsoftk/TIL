@@ -3,24 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ㅆㄱ무</title>
+    <title>Animation</title>
 </head>
 <body>
     <style>
-    .box{
-        width:500px;
-        height:500px;
-        background:red;
-       transform:rotate(20deg);
+        body{
+            background-color: green;
         }
-        //전부 바꾸고 싶을땐 transition:all 로 적는다.
-    .box:hover{
-        background-color:green;
-        font-size:40px;
+        @media screen and (min-width:320px) and (max-width:640px){
+           body{
+            background-color:blue;
+            } 
         }
     </style>
-    <span class="box">
-        lalala
-    </span>
+    <div class="box">
+    </div>
+    
 </body>
 </html>

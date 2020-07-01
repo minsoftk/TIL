@@ -23,6 +23,7 @@
         lalala
     </span>
 ```
+* Transition은 하나의 state에서 다른 state로 넘어갈 때 나타나는 효과 
 * Transition은 focus, active, hover에서 효과적으로 적용이 된다. 
 
 ## 2-9. Transformations
