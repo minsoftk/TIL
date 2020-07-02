@@ -25,14 +25,29 @@ class Checkstate extends React.Component{
     };
         //state는 object이다. 컴포넌트의 데이타를 넣을 공간이 있고 데이터는 변한다.
         //하지만 Checkstate에서 데이터를 어떻게 바꿀것인가?
+    add = () => {
+        //this.setState({count:1})
+        this.setState({count:this.state.count+1})
+        //이렇게 쓰는걸 권장하지는 않는다. 하지만 react는 똑똑하기 때문에 안다.
+        //current를 사용하기를 
+    };
+    minus = () => {
+        this.setState(current => ({count:current.count-1}));
+    };
+    //state를 set할대 react에서 외부의 상태에 의존하지 않는 가장 좋은 방법
+    //setstate를 할때마다 react는 render를 다시 한다.
     render(){
         return (
         <div>
         <h1> Im a class component {this.state.count} </h1>
-        <button>Add</button>
-        <button>Minus</button>
+        <button onClick={this.add}>Add</button>
+        <button onClick={this.minus}>Minus</button>
         </div>
         );
+        //this.add 는 onclick일때만 add()는 immediatly
+        //만약에 class 내에서 state의 상태를 변경하면 
+        //react는 render를 refresh 하지 않는다.
+        //따라서 render안에서 state를 변경해줘야 한다.
     }
 }
 export default Checkstate;
