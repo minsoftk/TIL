@@ -38,19 +38,33 @@ class Movies extends React.Component{
         const {isLoading, movies }=this.state; //ES6
         return (
          <div>
-        {isLoading ? "Loading" :movies.map( kind => (
-              <Movie 
+           <section className="container">
+        {isLoading 
+              ?
+              <div className="loader">
+                <span className="loader__text">
+                  Loading...
+                </span>
+              </div> 
+              
+              :
+              <div className="movies">
+              {movies.map( kind => 
+               <Movie 
                 key={kind.id}
                 id={kind.id} 
                 year={kind.year} 
                 title={kind.title} 
                 summary={kind.summary} 
                 poster={kind.medium_cover_image} 
-            />
-            )  //세미콜론은 언제 붙여야하는지?
-            )}
-            </div>
-        );     
+                genres={kind.genres}
+                />
+              )}</div>//왜 {} 로 movie.map 부터 컴포넌트를 감싸야하나?  
+                    // () => ()
+        }  
+          </section>
+        </div>
+                );     
     }
   }
                        
@@ -76,4 +90,5 @@ export default Movies;
 */
 
 //setstate로 rendering을 해야만 비동기처리를 할 수 있다. 
-          
+
+//자바스크립트 클래스안에 있으면 컴포넌트 클래스에 의해 혼란스러워진다. 그래서 항상 className 으로 하는 것을 잊지 말자. 
