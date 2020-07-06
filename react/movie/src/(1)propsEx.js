@@ -80,11 +80,10 @@ function App(){
     <Food key={food.id} name={food.name} picture={food.image}/>
     ))}
     </div>
+ 
 //!!!! 왜 each child in a list should have a unique "key" prop가 발생?
-// 모든 react의 element는 유일해야 한다.
+// 모든 react의 element는 유일해야 한다. <div></div> 안에 다 들어가야함.
 //id 값을 부여한후 key값을 넣어주면 오류가 사라진다.
-
-
 
  /*
    아래와 같이 함수화 

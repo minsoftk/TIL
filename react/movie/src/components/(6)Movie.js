@@ -1,5 +1,5 @@
-import React from 'react';
-import protoTypes from 'prop-types';
+import React from 'react'
+import protoTypes from 'prop-types'
 
 //state가 필요 없는 경우에는 class로 작성할 필요가 없다.
 function Movie({ year, title, summary, poster,genres}){

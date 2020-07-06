@@ -39,7 +39,7 @@ Food.propTypes ={
     rating:propTypes.number.isRequired
 }
 
-
+//CheckProps() { return }  {}? in ES6
 function CheckProps(){
   return(
   <div>

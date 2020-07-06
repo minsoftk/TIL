@@ -1,5 +1,5 @@
 import React from "react";
-import propsTypes from "prop-types";
+//import propsTypes from "prop-types";
 /*
 state란 보통 우리가 동적 데이터와 함께 작업할 때 만들어진다,
 변하는 데이터, 존재하지 않는 데이터, 생겨나고 사라지고 또는 벼경된 데이터

@@ -59,3 +59,4 @@ const cal={
     }
 }
 cal.plus(5,5);
+```
