@@ -1,12 +1,11 @@
 import React from 'react'
 import protoTypes from 'prop-types'
+import './style.css'
 
 //state가 필요 없는 경우에는 class로 작성할 필요가 없다.
 function Movie({ year, title, summary, poster,genres}){
     return (
     <div className="movie">
-        
-        
         <img className="movie_image" src={poster} alt={title} title={title}/>
         <h3 className="movie_title">{title}</h3>
         <h5 className="movie_year">{year}</h5>
@@ -18,7 +17,7 @@ function Movie({ year, title, summary, poster,genres}){
             )//넣을만한 key가 없지만 map에서 제공하는 index를 이용해서 넣을 수 있다.
         ) }
         </ul>
-        <p className="movie_summary">{summary}</p>
+        <p className="movie_summary">{summary.slice(0,140)}</p>
         
     </div>
     );
