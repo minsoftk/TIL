@@ -19,11 +19,19 @@ body,
 
 .movie{
     display:flex;
+    width:40%;
+    
+    
     justify-content: space-between;
 }
 .movie,
-.movie_title,
-.movie_year,
-.movie_genres_Array{
+.movie_year
+{
     display:inline-block;
+    justify-content: space-between;
+}
+
+.movie_summary{
+    width:180px;
+    
 }
