@@ -88,5 +88,6 @@ bool is_distinct( int n, int x[] )
 * 알고리즘에 포함된 연산들의 실행 횟수를 표기하는 하나의 기법
 * 최고차항의 차수만으로 표시
 * 따라서 **가장 자주 실행되는 연산 혹은 문장**의 실행횟수를 고려하는 것으로 충분
+<br><br><br>
 
-[이진검색과 정렬]()
+## [ **다음장 이진검색과 정렬** ](https://github.com/MinsoftK/TIL/blob/master/Algorithm/Binary_Search.md)
