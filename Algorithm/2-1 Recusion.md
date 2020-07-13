@@ -80,4 +80,6 @@ double gcd(int m, int n) {
         return gcd(n, m%n);
 }
 ```
-
+[이전장 1-2](https://github.com/MinsoftK/TIL/blob/master/Algorithm/1-2%20Binary_Search.md)
+<br>
+[다음장 2-2](https://github.com/MinsoftK/TIL/blob/master/Algorithm/2-2%20Recrusive.md)
