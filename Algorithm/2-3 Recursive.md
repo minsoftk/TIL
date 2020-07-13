@@ -46,10 +46,17 @@ int binarySearch(int data[], int target, int begin, int end) {
         return binarySearch(data, target, middle+1, end);
 }
 }
-30
+
 ```
+### 순환적 알고리즘 설계의 중요한 점 정리
+>적어도 하나의 base case, 즉 순환되지 않고 종료되는 case가 있어야 함
 
+>모든 case는 결국 base case로 수렴해야 함
 
+>암시적(implicit) 매개변수를 명시적(explicit) 매개변수로 바꾸어라.
+
+<br>
+<br>
 
 [이전장 2-2](https://github.com/MinsoftK/TIL/blob/master/Algorithm/2-2%20Recrusive.md)
 
