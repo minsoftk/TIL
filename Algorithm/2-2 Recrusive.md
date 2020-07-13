@@ -62,6 +62,8 @@ public static int sum(int n, int[] data){
 
 
 [이전장 2-1](https://github.com/MinsoftK/TIL/blob/master/Algorithm/2-1%20Recusion.md)
+
 <br>
+
 [다음장 2-3](https://github.com/MinsoftK/TIL/blob/master/Algorithm/2-3%20Recursive.md)
 

@@ -48,5 +48,6 @@ void bubbleSort(int data[], int n) {
 
 [이전 1-1](https://github.com/MinsoftK/TIL/blob/master/Algorithm/1-1%20Analysis_of_Algortihm.md)
 <br>
+
 [다음 2-1](https://github.com/MinsoftK/TIL/blob/master/Algorithm/2-1%20Recusion.md)
 
