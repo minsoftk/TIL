@@ -61,5 +61,7 @@ public static int sum(int n, int[] data){
 하지만 함수 호출에 따른 오버해드가 있음 (매개변수 전달, 액티베이션 프레임 생성 등)
 
 
-
+[이전장 2-1](https://github.com/MinsoftK/TIL/blob/master/Algorithm/2-1%20Recusion.md)
+<br>
+[다음장 2-3](https://github.com/MinsoftK/TIL/blob/master/Algorithm/2-3%20Recursive.md)
 [2-3 Recursive]()
