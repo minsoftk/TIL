@@ -208,31 +208,8 @@ mac: Command + Control + 스페이스 바
 <br>
 
 
+
 ## 11. 가운데 정렬 
-#### (+2020-07-27 추가)
-html 문법과 비교해보면 이해가 빠르다. 아래는 HTML 문법이다.
-
-```html
-<img src="이미지 URL">
-
-```
-
-Markdown 에서는 URL을 링크할때와도 비슷하다.
-
-```cpp
-
- ![example](./image/screenshot.jpg)
- 
-```
-
-
-<br>
-<br>
-<br>
-
-
-
-## 12. 가운데 정렬 
 #### (+2020-07-27 추가)
 마크다운은 가운데 정렬만 지원하는데 HTML tag인 ```<center></center>```을 활용한다.
 ```html
