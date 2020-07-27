@@ -1,3 +1,8 @@
+> 인프런에서 강의를 하고 계신 [부경대학교 IT융합응용공학과 권오흠 교수님의 알고리즘 배우기 강좌](https://www.inflearn.com/course/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%95%EC%A2%8C/dashboard) 해당 강의 내용을 정리해서 올렸습니다. <br>
+
+
+<br>
+
 # 2-1 Recursion
 * 자기 자신을 호출하는 함수
 ```ruby

@@ -1,3 +1,7 @@
+> 인프런에서 강의를 하고 계신 [부경대학교 IT융합응용공학과 권오흠 교수님의 알고리즘 배우기 강좌](https://www.inflearn.com/course/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%95%EC%A2%8C/dashboard) 해당 강의 내용을 정리해서 올렸습니다. <br>
+
+<br>
+
 # Designing Recursion
 * 적어도 하나의 base case, 즉 순환되지 않고 종료되는 case가 있어야 함
 * 모든 case는 결국 base case로 수렴해야 함
