@@ -6,20 +6,20 @@
 
 # Markdown 사용법 
 
-## **Bold**(강조) , *italic*(이탤릭체)
-```
+## 1. **Bold**(강조) , *italic*(이탤릭체) 
+```cpp
 예시
-It's very easy to make some words **bold** and other words *italic* with Markdown. 
-You can even [link to Google!](http://google.com)
+**You** can even [link to Google!](http://google.com)
+              [표시할 글귀] (링크할 사이트의 URL)
 ```
 -------------------------------------------------------------------------------------------------------------
 Markdown이 적용되면 아래와 같다. <br>
-* It's very easy to make some words **bold** and other words *italic* with Markdown. You can even [link to Google!](http://google.com)
+* **You** can even [link to Google!](http://google.com)
 
 <br>
 <br>
 
-## Header
+## 2. Header
 ```
 예시
 # This is an <h1> tag
@@ -34,7 +34,7 @@ Markdown이 적용되면 아래와 같다. <br>
 <br>
 
 
-## 강조
+## 3. 강조
 ```
 예시
 *This text will be italic*
@@ -61,7 +61,7 @@ _You **can** combine them_
 <br>
 
 
-## 이미지 삽입
+## 4. 이미지 삽입
 ```
 예시
 ![GitHub Logo](/images/logo.png)
@@ -81,14 +81,14 @@ _You **can** combine them_
 [GitHub](http://github.com)
 ```
 -------------------------------
-* 형식: ![표현할 글자](Link 시킬 Url
+* 형식: ![표현할 글자](Link 시킬 Url)
 
 <br>
 <br>
 
 <br>
 
-## Blockquotes
+## 5. Blockquotes
 ```
 예시
 As Kanye West said:
@@ -108,7 +108,7 @@ As Kanye West said:
 <br>
 <br>
 
-## Inline code
+## 6. Inline code
 ```
 예시
 I think you should use an
@@ -123,7 +123,7 @@ I think you should use an
 <br>
 
 
-## Syntax highlighting 
+## 7. Syntax highlighting 
 ```ruby
 예시
 require 'redcarpet'
@@ -139,7 +139,7 @@ puts markdown.to_html
 <br>
 
 
-## 테이블 만들기 (Table)
+## 8. 테이블 만들기 (Table)
 #### (+2020-07-24 추가)  
   
 
@@ -162,7 +162,7 @@ shift + \ 키를 눌르면 |(파이프)가 생성이 되는데 이를 이용하�
 <br>
 
 
-## 이모지 추가하기 
+## 9. 이모지 추가하기 
 #### (+2020-07-24 추가)
 >https://velog.io/@yuuuye/velog-%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4MarkDown-%EC%9E%91%EC%84%B1%EB%B2%95
 > 요 사이트에서 얻은 지식인데 작성할 때 더욱 풍부하게 md 파일 작성이 가능해져서 유용한 것 같다.  
@@ -186,10 +186,11 @@ mac: Command + Control + 스페이스 바
 <br>
 <br>
 
-## 글자 색상 변경
+## 10. 글자 색상 변경
 #### (+2020-07-24 추가)
+기본적으로 문법에서 지원하지 않기 때문에 HTML 태그를 써야한다.
 마크다운 작성 시
-```
+```html
 <span style="color:red">red</span>
 <span style="color:#d3d3d3">#d3d3d3</span>
 <span style="color:rgb(245, 235, 13)">rgb(245, 235, 13)</span>
@@ -197,7 +198,6 @@ mac: Command + Control + 스페이스 바
 
 결과  
   
-    
 
 <span style="color:red">red</span>
 <span style="color:#d3d3d3">#d3d3d3</span>
@@ -206,3 +206,43 @@ mac: Command + Control + 스페이스 바
 <br>
 <br>
 <br>
+
+
+## 11. 가운데 정렬 
+#### (+2020-07-27 추가)
+html 문법과 비교해보면 이해가 빠르다. 아래는 HTML 문법이다.
+
+```html
+<img src="이미지 URL">
+
+```
+
+Markdown 에서는 URL을 링크할때와도 비슷하다.
+
+```cpp
+
+ ![example](./image/screenshot.jpg)
+ 
+```
+
+
+<br>
+<br>
+<br>
+
+
+
+## 12. 가운데 정렬 
+#### (+2020-07-27 추가)
+마크다운은 가운데 정렬만 지원하는데 HTML tag인 ```<center></center>```을 활용한다.
+```html
+<center> 정렬할 컨텐츠 안으로 삽입 </center>
+```
+
+<center> 가운데 정렬! 쨘! </center>
+
+<br>
+<br>
+<br>
+
+
