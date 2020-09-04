@@ -8,3 +8,6 @@ INSERT INTO table2 (col1, col2)
 SELECT * FROM table1  
 WHERE condition;
 > insert의 select 한 쿼리 응답 값이 들어간다. (col1,col2) 가 붙어있으므로 select에서도 똑같이 맵핑시켜줘야한다.  
+
+
+![test](./image/test.png)

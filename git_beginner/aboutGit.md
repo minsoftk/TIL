@@ -2,6 +2,7 @@
 ## 기초
 
 ### Git
+![test](./image/test.png)
 #### What is Git?
 - Git is a `free` and `open source` `distributed version control system` designed to `handle everything` from small to very large projects with `speed` and `efficiency`. ([Git 공식사이트](https://git-scm.com/))
 - CVS, SVN, Mercurial 등이 있음
@@ -96,7 +97,7 @@ Update
   - add: 이 파일을 Git이 관리하게 하겠다 (or 수정 완료했다)
   - commit: 이 파일을 Git에 저장하겠다
 - ![lifecyle](https://github.com/MinsoftK/TIL/blob/master/git_beginner/images/lifecycle.png?raw=true)
-  - 출처: [2.2 Git의 기초 - 수정하고 저장소에 저장하기](https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EC%88%98%EC%A0%95%ED%95%98%EA%B3%A0-%EC%A0%80%EC%9E%A5%EC%86%8C%EC%97%90-%EC%A0%80%EC%9E%A5%ED%95%98%EA%B8%B0)
+  - 출처: [2.2 Git의 기초 - 수정하고 저장소에 저장하기](./images/lifecycle.png)
 - Untracked
   - Git과 아무 상관이 없는 상태
   - 따라서 Git이 대상 파일을 관리하지 못함
