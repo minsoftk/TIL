@@ -21,7 +21,7 @@
 
 
 ### VSC 활용꿀팁
-* [VSC 단축키 꿀팁](https://github.com/MinsoftK/TIL/blob/master/VSC/VisualStudioCode.md)
+* [VSC 단축키 꿀팁](https://github.com/MinsoftK/TIL/blob/master/VSC/VS%EC%BD%94%EB%93%9C%20%EC%9C%A0%EC%9A%A9%ED%95%9C%20%EB%8B%A8%EC%B6%95%ED%82%A4.md)
 
 ### HTML & CSS 정리
 * [HTML & CSS 간략설명](https://github.com/MinsoftK/HTML-CSS/blob/master/docs:%20html%20%26%20css%20.md) 
