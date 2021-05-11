@@ -27,4 +27,4 @@
 * [HTML & CSS 간략설명](https://github.com/MinsoftK/HTML-CSS/blob/master/docs:%20html%20%26%20css%20.md) 
 
 ### c++ Algorithms 정리
-* [c++ Algorithms 문제들 모음](https://github.com/MinsoftK/TIL/tree/master/c%2B%2B_Algorithms)
+* [c++ Algorithms 문제들 모음](https://github.com/MinsoftK/c-Algorithm_Q)
