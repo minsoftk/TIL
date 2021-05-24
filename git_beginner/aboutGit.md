@@ -2,7 +2,7 @@
 ## 기초
 
 ### Git
-![test](./image/test.png)
+
 #### What is Git?(버전관리 툴이다)
 - Git is a `free` and `open source` `distributed version control system` designed to `handle everything` from small to very large projects with `speed` and `efficiency`. ([Git 공식사이트](https://git-scm.com/))
 - CVS, SVN, Mercurial 등이 있음
@@ -311,7 +311,7 @@ git lg
 
 ### branch 전략
 #### Git branch 전략 (Git Flow)
-- ![GitFlow](./images/gitflow.png)
+- ![GitFlow](https://github.com/MinsoftK/TIL/blob/master/git_beginner/images/gitflow.png?raw=true)
 - master
   - git init하면 생기는 태초의 브랜치
   - 배포 가능한, 말그대로 master 브랜치
