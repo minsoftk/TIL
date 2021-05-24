@@ -3,7 +3,7 @@
 
 ### Git
 ![test](./image/test.png)
-#### What is Git?
+#### What is Git?(버전관리 툴이다)
 - Git is a `free` and `open source` `distributed version control system` designed to `handle everything` from small to very large projects with `speed` and `efficiency`. ([Git 공식사이트](https://git-scm.com/))
 - CVS, SVN, Mercurial 등이 있음
 #### Why Git?
