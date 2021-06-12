@@ -1,4 +1,4 @@
-# 2-5. Flex
+## 2-5. Flex
 
 * Inline Block 사용시 블록이 늘어날때 밑으로 내려가는 문제점이 있었다. 이것을 해결하기 위해 flex를 사용.
 * inline-block은 block같이 width, height 설정이 가능하지만 너무 old하고 단점이 많다... Responsive Design(반응형 디자인)을 지원하지 않는다.
