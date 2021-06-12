@@ -32,6 +32,13 @@
 * align-items는 cross axis(교차축-수직)에 적용된다.
 * 주축은 수평, 교차축은 수직으로 default 설정이 돼 있다.
 * height: 20vh에서 vh란 viewpoint height, 뷰포인트를 screen으로 생각해도 된다. 화면높이의 20%를 의미한다.
+* 축 변경 flex로 설정했을때 디폴트는 row이다. 
+```css
+flex-direction : column
+```
+* 주축은 수직이되고 교차축은 수평이 된다.
+
+<br/>
 
 > 설정값 설명
  justify-content: space between; 컨텐츠가 같은 간격으로 조정이 된다.
