@@ -10,8 +10,8 @@
   display: flex;
   justify-content:center;
   align-items:center; 로도 가능하다
-  //flex-direction: column //column-reverse
-  //flex-wrap: no wrap
+  flex-direction: column //row
+  flex-wrap: no wrap
  .box{
   background-color :red;
   width: 200px;
@@ -23,11 +23,13 @@
     <div class="box"></div>
   </div>
 ```
- * father의 flex를 지워버리면 block이 되버리고 flex 사용시 .box에 inline block이라고 적지 않아도 inline block이 된다.
- <br/>
 
 ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FWqMLc%2FbtqKGjPkHdm%2F5A5sK6n06Iw2jSJA6PwsKK%2Fimg.png)
 
+<br/>
+<br/>
+
+* father의 flex를 지워버리면 block이 되버리고 flex 사용시 .box에 inline block이라고 적지 않아도 inline block이 된다.
 * justify-content는 main axis(주축-수평)에 적용된다.
 * align-items는 cross axis(교차축-수직)에 적용된다.
 * 주축은 수평, 교차축은 수직으로 default 설정이 돼 있다.
@@ -35,27 +37,35 @@
 * 축 변경 flex로 설정했을때 디폴트는 row이다. 
 ```css
 flex-direction : column
+default 값은 row이다.
+colum-reverse 는 순서가 바뀐다.
+ flex-wrap: no wrap
+ wrap-reverse도 사용가능하다.
 ```
 * 주축은 수직이되고 교차축은 수평이 된다.
 
 <br/>
 
-> 설정값 설명
- justify-content: space between; 컨텐츠가 같은 간격으로 조정이 된다.
+> 설정값 설명  
+
+ justify-content: space between; 컨텐츠가 같은 간격으로 조정이 된다.  
+
  justify-content: space around : 컨텐츠 뿐만 아니라 그 주변도 같은 간격으로 조정이 된다.
 
- flex-direction 방향이 row 이면 justify는 수평으로, align은 수직으로 적용이 된다.
- flex-direction 방향이 column 이면 justify는 수직으로, align은 수평으로 적용이 된다.
- flex는 부모박스에만 적용을 한다.
+ flex-direction 방향이 row 이면 justify는 수평으로, align은 수직으로 적용이 된다.  
+
+ flex-direction 방향이 column 이면 justify는 수직으로, align은 수평으로 적용이 된다.  
+
+ flex는 부모박스에만 적용을 한다.  
+
 
  flex-wrap: no wrap (default)
  폭은 무시하고 다 줄어드는 것이다. wrap으로 하면 화면을 줄여도 폭은 그대로 유지해주지만 컨텐츠를 밑으로 내려준다.
 
 <br/>
 
-* display:flex를 한 뒤에 justify, align 사용 가능하다.
-직접 실험을 해보면서 이런 것도 사용이 가능하구나를 느껴야 한다.
-부모 컨테이너를 플렉스로 선언하면, 그안에 종속된 칠드런 박스들을 움직일 수 있다. 그래서 각각의 박스에 명령을 적용할 필요가 없다.
+* display:flex를 한 뒤에 justify, align 사용 가능하다.  
+* 부모 컨테이너를 플렉스로 선언하면, 그안에 종속된 칠드런 박스들을 움직일 수 있다. 그래서 각각의 박스에 명령을 적용할 필요가 없다.
 <br/><br/><br/>
 
 ## 2-6. CSS Selector and Pseudo Selectors
