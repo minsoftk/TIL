@@ -1,4 +1,4 @@
-## 2-7. CSS states
+## 2-9. CSS states
 ```ruby
 <body>
     <style>
