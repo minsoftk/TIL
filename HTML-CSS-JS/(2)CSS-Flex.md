@@ -123,6 +123,20 @@ colum-reverse 는 순서가 바뀐다.
 ```
 * staic은 처음자리에 고정시키는 것
 * relative는 element가 처음 위치한 곳을 기준으로 수정하는 것. left,top,right,bottom을 통해서 수정한다. 첫 기준점이 정말 중요하다.
+<br/>
+
+#### position: absolute의 특성
+```css
+	.green{
+		background-color: teal;
+		height:100px;
+		width:100px;
+		position: absolute;
+		top:-10px;
+		left:-10px;
+	}
+```
+* 가장 가까운 relative 부모를 기준으로 이동시켜준다.
 
 <br/>
 <br/>
