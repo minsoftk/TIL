@@ -165,46 +165,43 @@ colum-reverse 는 순서가 바뀐다.
 
 - Pseudo Selector(가상 셀렉터) : 셀렉터인데 element가 아닌 것
 
-```ruby
+```css
 <style>
   input[type="submit"]{
   background-color: red;
   }
-  i
+
   </style>
-.
-.
-.
   <div class="box">
     <input type="password">
     <input type="submit">
 ```
+
 * input[type="submit"] 이런 식으로 타입으로 셀렉터를 지정할 수 있다. 가짜 셀렉터를 만드는 방법
 
-```ruby
+```css
 <style>
   input[type="submit"]{
   background-color: red;
   }
   i
   </style>
-.
-.
-.
+  <body>
   <div class="box"></div>
   <div class="box"></div>
   <div class="box">
     <input type="password">
     <input type="submit">
-   
-  어떻게 박스 3의 색상이 초록색으로 변하게 할 수 있을까? html tag, id ,class를 사용하지 않고
+   </body>
+   #어떻게 박스 3의 색상이 초록색으로 변하게 할 수 있을까? html tag, id ,class를 사용하지 않고
 
-->
 .box:last-child{
   background-color:pink;
 }
+마지막 자식을 선택한다.
 
-.box:nth-child(2){
+.box:nth-child(2),
+.box:nth-child(4){
   background-color:pink;
 }
 .box:nth-child(2n){
