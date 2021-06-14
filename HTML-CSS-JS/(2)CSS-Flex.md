@@ -127,6 +127,19 @@ colum-reverse 는 순서가 바뀐다.
 
 #### position: absolute의 특성
 ```css
+<style>
+	body{
+		height: 100vh;
+		//height: 1000vh;
+		margin: 50px;
+	}
+	div{
+		position: relative;
+		width: 300px;
+		height: 300px;
+		color: white;
+		background-color: teal;
+	}
 	.green{
 		background-color: teal;
 		height:100px;
@@ -135,8 +148,14 @@ colum-reverse 는 순서가 바뀐다.
 		top:-10px;
 		left:-10px;
 	}
+</style>
+<body>
+	<div>
+		<div class="green"></div>
+	</div>
+</body>
 ```
-* 가장 가까운 relative 부모를 기준으로 이동시켜준다.
+* 가장 가까운 relative 부모를 기준으로 이동시켜준다. 위 코드를 보면 green을 감싸는 div가 relative이므로 감싸는 div 기준으로 고정된다. 만약 div에 relative가 빠진다면 body를 기준으로 움직인다.
 
 <br/>
 <br/>
