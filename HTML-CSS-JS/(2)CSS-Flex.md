@@ -125,8 +125,8 @@ colum-reverse 는 순서가 바뀐다.
 * relative는 element가 처음 위치한 곳을 기준으로 수정하는 것. left,top,right,bottom을 통해서 수정한다. 첫 기준점이 정말 중요하다.
 <br/>
 
-#### position: absolute의 특성
-```css
+### position: absolute의 특성
+```html
 <style>
 	body{
 		height: 100vh;
@@ -165,7 +165,7 @@ colum-reverse 는 순서가 바뀐다.
 
 - Pseudo Selector(가상 셀렉터) : 셀렉터인데 element가 아닌 것
 
-```css
+```html
 <style>
   input[type="submit"]{
   background-color: red;
@@ -187,7 +187,7 @@ colum-reverse 는 순서가 바뀐다.
 
 * input[type="submit"] 이런 식으로 타입으로 셀렉터를 지정할 수 있다. 가짜 셀렉터를 만드는 방법
 
-```css
+```html
 <style>
   input[type="submit"]{
   background-color: red;
@@ -223,7 +223,7 @@ colum-reverse 는 순서가 바뀐다.
 ->마음대로 정할 수 있다.
 ```
 ## 2-8. Combinators
-```css
+```html
 <style>
 span{
 	color: tomato;
@@ -239,9 +239,9 @@ div p span{
 	</div>
 </body>
 ```
-* <p>라는 부모태그에서 <span> 자식태그를 가진 것에 css를 적용한다. 구조가 존재하지 않으면 적용되지 않는다. 
+* `<p>` 라는 부모태그에서 `<span>` 자식태그를 가진 것에 css를 적용한다. 구조가 존재하지 않으면 적용되지 않는다. 
 
-```css
+```html
 p + span{
   "이것의 의미는 서로 형제라는 뜻이다."
   p 바로 다음에 오는 span을 찾는다.
