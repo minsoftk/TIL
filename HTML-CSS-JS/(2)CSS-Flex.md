@@ -173,6 +173,12 @@ colum-reverse 는 순서가 바뀐다.
   input[placeholder="username"] {
 	  background-color:thistle;
   }
+  # placeholder가 username인 셀렉터를 지정
+
+   input[placeholder~="name"] {
+	  background-color:thistle;
+  }
+  # name을 가진 셀렉터를 모두 지정해준다.
   </style>
   <div class="box">
     <input type="password">
