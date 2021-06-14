@@ -68,7 +68,67 @@ colum-reverse 는 순서가 바뀐다.
 * 부모 컨테이너를 플렉스로 선언하면, 그안에 종속된 칠드런 박스들을 움직일 수 있다. 그래서 각각의 박스에 명령을 적용할 필요가 없다.
 <br/><br/><br/>
 
-## 2-6. CSS Selector and Pseudo Selectors
+## 2-6. Fixed
+```css
+<style>
+	body{
+		height: 100vh;
+		//height: 1000vh;
+		margin: 20px;
+	}
+	div{
+		position: fixed;
+		width: 300px;
+		height: 300px;
+		color: white;
+		background-color: teal;
+	}
+</style>
+```
+* fixed로 해놓으면 계속 화면에 고정 돼 있는 것을 확인할 수 있다. 초기 레이아웃에 위치된 자리에 고정된다.
+* top, left, right, bottom 속성에 조금만 변화를 줘도 block, margin이든 신경 쓰지 않는다. 서로 다른 레이어에 존재하게 된다. 즉, 전에는 같은 레이어에서 접촉하고 있었지만 속성에 값을 주는 순간 다른 레이어가 된다.
+<br/>
+<br/>
+<br/>
+
+## 2-6-2. Static & relative
+```css
+<style>
+	body{
+		height: 100vh;
+		//height: 1000vh;
+		margin: 50px;
+	}
+	div{
+		position: fixed;
+		width: 300px;
+		height: 300px;
+		color: white;
+		background-color: teal;
+	}
+	.green{
+		background-color: teal;
+		height:100px;
+		width:100px;
+		position: relative;
+		top:-10px;
+		left:-10px;
+	}
+</style>
+<body>
+	<div>
+		<div class="green"></div>
+	</div>
+</body>
+```
+* staic은 처음자리에 고정시키는 것
+* relative는 element가 처음 위치한 곳을 기준으로 수정하는 것. left,top,right,bottom을 통해서 수정한다. 첫 기준점이 정말 중요하다.
+
+<br/>
+<br/>
+<br/>
+
+## 2-7. CSS Selector and Pseudo Selectors
 
 - Pseudo Selector(가상 셀렉터) : 셀렉터인데 element가 아닌 것
 
