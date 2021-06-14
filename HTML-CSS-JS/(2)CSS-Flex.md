@@ -204,10 +204,15 @@ colum-reverse 는 순서가 바뀐다.
 .box:nth-child(4){
   background-color:pink;
 }
-.box:nth-child(2n){
+.box:nth-child(even){
   background-color:pink;
 }
->두번째 것만 선택하게 만든다.
+->짝수만 선택하게 만든다.
+
+.box:nth-child(3n+1){
+  background-color:pink;
+}
+->마음대로 정할 수 있다.
 
 input + .box{
   "이것의 의미는 서로 형제라는 뜻이다."
