@@ -213,9 +213,29 @@ colum-reverse 는 순서가 바뀐다.
   background-color:pink;
 }
 ->마음대로 정할 수 있다.
+```
+## 2-8. Combinators
+```css
+<style>
+span{
+	color: tomato;
+}
+div p span{
+	color: teal;
+}
+</style>
+<body>
+	<div>
+		<span>hello</span>
+		<p>Lorem ipsum dolor sit amet consectetur
+	</div>
+</body>
+```
+* <p>라는 부모태그에서 <span> 자식태그를 가진 것에 css를 적용한다. 구조가 존재하지 않으면 적용되지 않는다. 
 
 input + .box{
   "이것의 의미는 서로 형제라는 뜻이다."
+  input다음에 오는 box class를 찾는다.
 }
 input > .box{
   "direct child : 직계라는 의미"
