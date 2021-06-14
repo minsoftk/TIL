@@ -155,7 +155,7 @@ colum-reverse 는 순서가 바뀐다.
 	</div>
 </body>
 ```
-* 가장 가까운 relative 부모를 기준으로 이동시켜준다. 위 코드를 보면 green을 감싸는 div가 relative이므로 감싸는 div 기준으로 고정된다. 만약 div에 relative가 빠진다면 body를 기준으로 움직인다.
+* 가장 가까운 relative 부모를 기준으로 이동시켜준다. 위 코드를 보면 green을 감싸는 div가 relative이므로 감싸는 div 기준으로 고정된다. 만약 div에 relative가 빠진다면 body를 기준으로 움직인다. 많은 사람들이 실수하는 부분은 박스를 absolute로 만들고 부모를 relative로 만들지 않았는데 왜 body 기준으로 옮겨지는지 알지 못한다.
 
 <br/>
 <br/>
