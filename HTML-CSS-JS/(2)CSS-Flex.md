@@ -239,6 +239,7 @@ input + .box{
 }
 input > .box{
   "direct child : 직계라는 의미"
+  input 다음에 오는 .box class들을 의미
 }
 
 >직계 외에는 해당하지 않는다.
