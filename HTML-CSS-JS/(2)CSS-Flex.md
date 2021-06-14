@@ -170,7 +170,9 @@ colum-reverse 는 순서가 바뀐다.
   input[type="submit"]{
   background-color: red;
   }
-
+  input[placeholder="username"] {
+	  background-color:thistle;
+  }
   </style>
   <div class="box">
     <input type="password">
@@ -233,14 +235,43 @@ div p span{
 ```
 * <p>라는 부모태그에서 <span> 자식태그를 가진 것에 css를 적용한다. 구조가 존재하지 않으면 적용되지 않는다. 
 
-input + .box{
+```css
+p + span{
   "이것의 의미는 서로 형제라는 뜻이다."
-  input다음에 오는 box class를 찾는다.
+  p 바로 다음에 오는 span을 찾는다.
 }
-input > .box{
+
+p ~ span{
+	p 다음에 span이 바로 오지 않을 경우에 쓴다.
+}
+
+p > span{
   "direct child : 직계라는 의미"
-  input 다음에 오는 .box class들을 의미
+  p 다음에 span을 의미
 }
 
 >직계 외에는 해당하지 않는다.
+```
+
+## attribute 적용
+
+```css
+<style>
+	input{
+		border:1px solid wheat;
+	}
+	input:requried{
+		border:1px solid tomato;
+	}
+</style>
+<form>
+	<input type="text" placeholder="username"/>
+	<input type="password" required placeholder="password"/>
+</form>
+```
+  
+
+## attribute seletor
+```css
+
 ```
