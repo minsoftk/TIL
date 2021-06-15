@@ -39,8 +39,8 @@
 flex-direction : column
 default 값은 row이다.
 colum-reverse 는 순서가 바뀐다.
- flex-wrap: no wrap
- wrap-reverse도 사용가능하다.
+flex-wrap: no wrap
+wrap-reverse도 사용가능하다.
 ```
 * 주축은 수직이되고 교차축은 수평이 된다.
 
