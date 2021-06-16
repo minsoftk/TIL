@@ -1,3 +1,5 @@
+* ![이곳에서](https://docs.python.org/3/library/) 파이썬에 대한 Docs를 확인할 수 있다. 많은 함수들을 확인할 수 있다.  
+
 # 1.1 Lists
 * 리스트를 생성하는 법  
 
@@ -23,4 +25,20 @@ print(minsoftk["name"])
 minsoftk["handsome"] = True
 print(minsoftk)
 ```
-* ![이곳에서](https://docs.python.org/3/library/) 파이썬에 대한 Docs를 확인할 수 있다. 많은 함수들을 확인할 수 있다.
+
+# format
+```python
+def age_check(age):
+	print(f"your are {age}")
+	# print("you are" + age)
+age_check(18)
+```
+* 위와 같이 `f`를 쓰면 `{age}`처럼 표현할 수 있다.
+
+# for
+```python
+days = ("mon", "tue", "wed", "thu", "fri")
+
+for potato in days
+	print(potato)
+```

@@ -43,7 +43,51 @@
 	}
 </style>
 ```
-* 다양한 transform을 연습해보는 사이트를 방문해서 다양한 것을 경험해보자
->[Transformation 연습](https://developer.mozilla.org/en-US/docs/Web/CSS/transform)
+* 다양한 transition, transform을 연습해보는 사이트를 방문해서 다양한 것을 경험해보자
+[Transition 연습](https://matthewlein.com/tools/ceaser)  
+[Transformation 연습](https://developer.mozilla.org/en-US/docs/Web/CSS/transform)
 
+<br/>
+<br/>
 
+## Animation
+```css
+ <style>
+	@keyframes superSexyCoinFlip{
+		from{
+			transform:rotateX(0);
+		}
+		to{
+			transform:rotateX(360deg);
+		}
+	}
+	img{
+		border:5px solid black;
+		border-radius:50%;
+		animation:superSexyCoinFlip 5s ease-in-out infinite;
+	}
+</style>
+```
+
+### form-to 대신에 % 쓰기
+* 2단계 이상이 필요할때 
+```css
+<style>
+	@keyframes superSexyCoinFlip{
+		0%{
+			transform:rotateX(0);
+		}
+		50%{ 
+			transform:rotateX(180deg) translate(100px);
+		}
+		100%{
+			transform:rotateY(0);
+		}
+	}
+	img{
+		border:5px solid black;
+		border-radius:50%;
+		animation:superSexyCoinFlip 5s ease-in-out infinite;
+	}
+</style>
+```
