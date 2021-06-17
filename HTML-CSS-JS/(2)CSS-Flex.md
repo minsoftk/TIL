@@ -4,7 +4,7 @@
 * inline-block은 block같이 width, height 설정이 가능하지만 너무 old하고 단점이 많다... Responsive Design(반응형 디자인)을 지원하지 않는다.
 * 이를 적용하려면 부모 엘리먼트에만 명시해준다. 예를 들면 body에 div 3개가 있을때 body에 명시를 해준다. 
 
-```ruby
+```css
 <style>
 .father{
   display: flex;
