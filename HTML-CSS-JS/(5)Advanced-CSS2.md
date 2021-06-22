@@ -1,5 +1,5 @@
 ## 2-10. Animations
-```ruby
+```css
   <style>
     .box{
         width:50px;
@@ -28,13 +28,14 @@
 ```
 
 ## 2-11. MediaQuery
-```ruby
+```css
    <style>
     body{
          background-color: green;
          }
        
-    @media screen and (min-width:320px) and (max-width:640px){
+    @media screen and (min-width:320px) and (max-width:640px) and (orientation: landscape){
+		/*landscape는 가로 모드 portrait : 세로 모드*/
      body{
             background-color:blue;
         } 
