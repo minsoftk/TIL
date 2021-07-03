@@ -28,3 +28,14 @@
 
 ### c++ Algorithms 정리
 * [c++ Algorithms 문제들 모음](https://github.com/MinsoftK/c-Algorithm_Q)
+
+### SQL 정리
+* [SQL 문법 정리](https://github.com/MinsoftK/TIL/tree/master/SQL)
+
+### Spring
+* [Spring에 대하여]https://github.com/MinsoftK/TIL/tree/master/Spring)
+
+### JAVA, C++, Python
+* [Java](https://github.com/MinsoftK/TIL/tree/master/JAVA)
+* [C++](https://github.com/MinsoftK/TIL/tree/master/c%2B%2B_study)
+* [Python](https://github.com/MinsoftK/TIL/tree/master/python)
