@@ -277,7 +277,6 @@ p > span{
 ```
   
 
-## attribute seletor
-```css
-
-```
+## Boder Box
+* width 200px인 box에 `padding-left:50px`를 줬다고 치자 그러면 css에서는 250px를 가지는 것으로 안다. 따라서 왼쪽에 50px를 늘린것처럼 padding을 늘린다. 근데 width가 200px이므로 오른쪽으로도 50px 밀린다 그래서 총 250px가 된다. 
+`box-sizing:border-box`라는 명령어를 써주면 200px를 유지해야되기에 content가 보일 영역을 넓히지 않는다.
