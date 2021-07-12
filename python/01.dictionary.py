@@ -10,55 +10,57 @@ All this functions should check for errors, follow the comments to see all cases
 There should be NO ERRORS from Python in the console.
 """
 
+
+import os
+
+
 def add_to_dict(a, key="", value=""):
-  if type(a) is not dict:
-    print(f"You need to send a dictionary. You sent: {type(a)}")
-  elif type(a) is dict and (key == "" or value == ""):
-    print("You need to send a word and a definition.")
-  elif type(a) is dict and key in a:
-    print(f"{key} is already on the dictionary. Won't add.")
-  elif type(a) is dict and (key != "" or value !=""):
-    a[key] = value
-    print(f"{key} has been added.")
+    if type(a) is not dict:
+        print(f"You need to send a dictionary. You sent: {type(a)}")
+    elif type(a) is dict and (key == "" or value == ""):
+        print("You need to send a word and a definition.")
+    elif type(a) is dict and key in a:
+        print(f"{key} is already on the dictionary. Won't add.")
+    elif type(a) is dict and (key != "" or value != ""):
+        a[key] = value
+        print(f"{key} has been added.")
 
 
 def get_from_dict(a, key="", value=""):
-  if type(a) is not dict:
-    print(f"You need to send a dictionary. You sent: {type(a)}")
-  elif type(a) is dict and (key == "" and value == ""):
-    print("You need to send a word to search for.")
-  elif type(a) is dict and key not in a:
-    print(f"{key} was not found in this dict.")
-  elif type(a) is dict and (key != "" and value ==""):
-    print(f"{key} : {a[key]}")
+    if type(a) is not dict:
+        print(f"You need to send a dictionary. You sent: {type(a)}")
+    elif type(a) is dict and (key == "" and value == ""):
+        print("You need to send a word to search for.")
+    elif type(a) is dict and key not in a:
+        print(f"{key} was not found in this dict.")
+    elif type(a) is dict and (key != "" and value == ""):
+        print(f"{key} : {a[key]}")
 
 
 def update_word(a, key="", value=""):
-  if type(a) is not dict:
-    print(f"You need to send a dictionary. You sent: {type(a)}")
-  elif type(a) is dict and (key not in a):
-    print(f"{key} is not on the dict. Can't update non-existing word.")
-  elif type(a) is dict and (key != "" and value != ""):
-    a[key] = value
-    print(f"{key} has been updated to: {value}")
-
+    if type(a) is not dict:
+        print(f"You need to send a dictionary. You sent: {type(a)}")
+    elif type(a) is dict and (key not in a):
+        print(f"{key} is not on the dict. Can't update non-existing word.")
+    elif type(a) is dict and (key != "" and value != ""):
+        a[key] = value
+        print(f"{key} has been updated to: {value}")
 
 
 def delete_from_dict(a, key="", value=""):
-  if type(a) is not dict:
-    print(f"You need to send a dictionary. You sent: {type(a)}")
-  elif type(a) is dict and (key == "" and value == ""):
-    print("You need to specify a word to delete.")
-  elif type(a) is dict and (key != ""):
-    if key in a:
-      del a[key]
-      print(f"{key} has been deleted.")
-    else:
-      print(f"{key} is not in this dict. Won't delete.")
-  
+    if type(a) is not dict:
+        print(f"You need to send a dictionary. You sent: {type(a)}")
+    elif type(a) is dict and (key == "" and value == ""):
+        print("You need to specify a word to delete.")
+    elif type(a) is dict and (key != ""):
+        if key in a:
+            del a[key]
+            print(f"{key} has been deleted.")
+        else:
+            print(f"{key} is not in this dict. Won't delete.")
+
 # \/\/\/\/\/\/\ DO NOT TOUCH  \/\/\/\/\/\/\
 
-import os
 
 os.system('clear')
 
