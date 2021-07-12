@@ -1,5 +1,8 @@
 > 인프런에서 강의를 하고 계신 [부경대학교 IT융합응용공학과 권오흠 교수님의 알고리즘 배우기 강좌](https://www.inflearn.com/course/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%95%EC%A2%8C/dashboard) 해당 강의 내용을 정리해서 올렸습니다. <br>
 
+![](https://github.com/MinsoftK/TIL/blob/master/Algorithm/image/2-counting_cell_01.png)
+![](./image/2-counting_cell_01.png)
+
 >교재: 쉽게 배우는 알고리즘: 관계 중심의 사고법(문병로, 한빛 미디어)
 <br>참고서적: Cormen,Leiserson, Rivest, Introduction to Algorithms. MIT Press
 <br>추천 선수 지식: C언어, 자료구조
