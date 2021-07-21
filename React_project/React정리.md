@@ -585,3 +585,30 @@ componentDidCatch(error, info) {
 # 8. Hook
 
 useState는 가장 기본적인 Hook이며, 함수형 컴포넌트에서도 가변적인 상태를 지닐 수 있게 해준다. 함수형 컴포넌트에서도 상태를 관리해야 한다면 이 Hook을 사용한다.
+
+## 8.1 useState
+
+하나의 useState함수는 하나의 상태 값만 관리할 수 있다. 컴포넌트에서 관리해야 할 상태가 여러 개여도 관리할 수 있다.
+
+## 8.2 useEffect
+
+useEffect는 리액트 컴포넌트가 렌더링될 때마다 특정 작업을 수행하도록 설정할 수 있는 Hook이다.
+
+```js
+useEffect(() => {
+	console.log('렌더링이 완료되었습니다.');
+	console.log({
+		name,
+	});
+	return () => {
+		console.log('cleanup');
+		console.log(name);
+	};
+}, []); //[]를 넣으면 처음 렌더링 될때만 실행한다.
+//[name] 을 넣으면 특정값 업데이트가 수행된다.
+```
+
+- 뒷정리 함수가 호출될 때는 업데이트되기 직전의 값을 보여준다.
+  App.js에서 Info 컴포넌트를 visible 상태를 바꿨을때 return 되면서 상태를 변경함.
+
+## 8.3 useReducer
