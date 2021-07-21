@@ -394,3 +394,194 @@ export default EventPractice;
 ## 어떠한 경우에 사용해야하나?
 
 - DOM을 꼭 직접적으로 건드려야 할때
+  1.  특정 input에 포커스 주기
+  2.  스크롤박스 조작
+  3.  canvas요소에 그림그리기
+
+## 콜백함수를통한 ref
+
+```js
+<input
+	ref={(ref) => {
+		this.input = ref;
+	}}
+/>
+```
+
+## 정리
+
+- DOM에 직접 접근해야 할 때는 ref를 사용한다. 하지만 ref를 사용하지 않고도 원하는 기능을 구현할 수 있는지 반드시 고려. 컴포넌트끼리 데이터를 교류할 때는 언제나 데이트를 부모<->자식 흐름으로 교류해야 한다. 리덕스 or Context API를 사용하여 효율적으로 교류.
+
+# 6. 컴포넌트 반복
+
+- 반복되는 내용을 효율적으로 관리하는 방법.
+
+* map 함수를 이용한다.
+  `arr.map(callback,[thisArg])`
+  -currentValue:현재처리하고 있는 요소
+  -index:현재처리하고 있는 요소의 index값
+  -array: 현재 처리하고 있는 원본 배열
+
+```js
+const numbers=[1,2,3,4,5];
+const result = numbers.map(num = > num*num); //es6문법
+console.log(result);
+
+const names =['눈사람','얼음','눈','바람'];
+const nameList = names.map(names => <li>{names}</li>)
+```
+
+## Key란 무엇인가?
+
+리액트에서 key는 컴포넌트 배열을 렌더링 했을 때 어떤 원소에 변동이 있었는지 알아내려고 사용합니다. 예를 들어 유동적인 데이터를 다룰 때는 원소를 새로 생성하거나 제거하거나 수정할 수 있다. key가 없을때는 Virtual DOM을 비교하는 과정에서 리스트를 순차적으로 비교하면서 변화를 감지한다.
+
+## Key설정
+
+키값을 설정할 떄는 map함수의 인자로 전달되는 함수 내부에서 컴포넌트props를 설정하듯이 설정하면 된다. key값은 언제나 유일해야 한다. 데이터가 가진 고윳값을 key값으로 설정해야 한다.
+
+- 고유값이 없을 때만 index값을 key로 사용해야 한다. index를 key로 사용하면 배열이 변경될 때 효율적으로 리렌더링하지 못한다.
+
+## 응용
+
+객체 형태로 정보 담기.
+
+```js
+const IterationSample = () => {
+	const [names,setNames] = useState([
+		{id:1,text:'눈사람'},
+		{id:2,text:"얼음"},
+		{id:3,text:'눈'},
+		{id:4,text:'바람'},
+	]);
+	const[inputText,setInputText] = useState('');
+	const[nextid, setNextId]=useState(5);
+	const nameList = names.map((names) => <li key={names.id}>{names.text}</li>);
+	return(
+		<ul>{nameList}</ul>
+	);
+```
+
+<br/>
+<br/>
+
+## 객체 배열에 내용 추가하기
+
+- 배열에 push함수를 이용하지 않고 concat을 사용했는데 push는 기존 배열 자체를 변경해주는 반면 concat은 새로운 배열을 만들어준다는 차이가 있다. 리액트에서 상태를 업데이트할 때는 기존상태를 그대로 두면서 새로운 값을 상태로 설정해야 한ㄷ. 이를 불변성 유지라고 한다. 그래야 컴포넌트의 성능을 최적화 할 수 있다.
+
+```js
+import React, { useState } from 'react';
+
+const IterationSample = () => {
+	const [names, setNames] = useState([
+		{ id: 1, text: '눈사람' },
+		{ id: 2, text: '얼음' },
+		{ id: 3, text: '눈' },
+		{ id: 4, text: '바람' },
+	]);
+	const [inputText, setInputText] = useState('');
+	const [nextid, setNextId] = useState(5);
+	const onChange = (e) => {
+		setInputText(e.target.value);
+	};
+	const onClick = () => {
+		const nextNames = names.concat({
+			id: nextid,
+			text: inputText,
+		});
+		setNextId(nextid + 1);
+		setNames(nextNames);
+		setInputText('');
+	};
+	const namesList = names.map((names) => <li key={names.id}>{names.text}</li>);
+	return (
+		<>
+			<input value={inputText} onChange={onChange} />
+			<button onClick={onClick}>추가</button>
+			<ul>{namesList}</ul>
+		</>
+	);
+};
+export default IterationSample;
+```
+
+## 객체배열 데이터 제거 기능
+
+filter라는 내장 함수를 사용한다.
+
+## 정리
+
+반복되는 데이터를 렌더링 하는 방법을 배웠고 이를 응용하여 유동적인 배열을 다루었다. 컴포넌트 배열을 렌더링할 때는 key값 설정에 항상 주의해야 한다. 또 key 값은 언제나 유일해야 한다. key값이 중복된다면 렌더링 과정에서 오류가 발생한다.  
+배열에 직접 접근하는 것이 아닌 `concat`, `filter`등 배열 내장 함수를 사용하여 새로운 배열을 만든 후 이를 새로운 상태로 설정해줘야 한다.
+
+# 7. 컴포넌트 라이프 사이클
+
+- 리액트 프로젝트를 진행하다 보면 가끔 컴포넌트를 처음으로 렌더링할 때 어떤 작업을 처리해야 하거나 컴포넌트를 업데이트하기 전후로 어떤 작업을 처리해야 할 수도 있고, 불필요한 업데이트를 방지해야 할 수도 있다. 이때 컴포넌트의 라이프사이클 메서드를 사용한다.
+
+  1.마운트
+  DOM이 생성되고 웹 브라우저상에 나타나는 것을 마운트라고 한다. 이때 호출하는 메서드는 `constructor`, `getDerivedStateFromProps`, `render`, `componentDidMount`
+
+  2.업데이트
+  Props가 바뀔 때, state가 바뀔 때, 부모 컴포넌트가 리렌더링될때, this.forceUpdate로 강제로 렌더링을 트리거할 때
+
+  3.언마운트
+  마운트의 반대과정. 즉 컴포넌트를 DOM에서 제거하는 것을 언마운트라고 한다.
+
+## render함수
+
+`render(){...}`
+컴포넌트의 모양새를 정의
+이 메서드 안에서 this.props와 this.state에 접근할 수 있으며, 리액트 요소를 반환한다.  
+DOM정보를 가져오거나 state에 변화를 줄때는 `componentDidMount`에서 해야한다.
+
+## Constructor
+
+이것은 컴포넌트의 생성자 메서드로 컴포넌트를 만들때 처음으로 실행됨. 초기 state설정 가능
+
+## getDerivedStateFromProps 메서드
+
+props로 받아온 값을 state에 동기화시키는 용도로 사용하며, 컴포넌트가 마운트될 때와 업데이트 될때 호출.
+
+```js
+static getDerivedStateFromProps(nextProps, prevState) {
+	if (nextProps.value !== prevState.value){
+		return {value: nextProps.value};
+	}
+	return null; //state를 변경할 필요가 없다면 null을 반환.
+}
+```
+
+## componentDidMount 메서드
+
+컴포넌트를 만들고, 첫 렌더링을 다 마친후 실행. 다른 자바스크립트 라이브러리 또는 프레임 워크의 함수를 호출하거나 이벤트 등록, setTimeout,setInterval, 네트워크 요청 같은 비동기 작업을 처리한다.
+
+## shouldComponentUpdate메서드
+
+이것은 props 또는 state를 변경했을 때, 리렌더링을 시작할지 여부를 지정하는 메서드입니다. true 혹은 false를 반환해야 한다. 컴포넌트를 만들 때 이 메서드를 따로 생성하지 않으면 기본적으로 true를 반환. 컴포넌트 최적화할때 주로 사용
+
+## getSnapshotBeforeUpdate 메서드
+
+## coponentDidUpdate 메서드
+
+`coponentDidUpdate(prevProps, prevState, snapshot)
+리렌더링을 완료한 후 실행. 업데이트가 끝난 직후이므로, DOM 관련 처리를 해도 무방. prev 인자들로 이전에 가졌던 데이터에 접근 가능.
+
+## componentWillUnmount 메서드
+
+이것은 컴포넌트를 DOM에서 제거할 때 실행합니다. 등록한 이벤트,타이머, 직접 생성한 DOM이 있다면 여기서 제거 작업.
+
+## componentDidCatch 메서드
+
+컴포넌트 렌더링 도중에 에러가 발생했을 때, 애플리케이션 먹통이 되지않고 오류 UI를 보여줄 수 있게한다. this.porps.children으로 전달되는 컴포넌트에서 발생하는 에러만 잡아낼 수 있다. 자기 자신에게 발생하는 에러는 잡아낼 수 없다.
+
+```js
+componentDidCatch(error, info) {
+	this.setState({
+		error:true
+	});
+	console.log({error,info});
+}
+```
+
+# 8. Hook
+
+useState는 가장 기본적인 Hook이며, 함수형 컴포넌트에서도 가변적인 상태를 지닐 수 있게 해준다. 함수형 컴포넌트에서도 상태를 관리해야 한다면 이 Hook을 사용한다.
