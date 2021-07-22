@@ -504,14 +504,20 @@ const IterationSample = () => {
 export default IterationSample;
 ```
 
+<br/>
+
 ## 객체배열 데이터 제거 기능
 
 filter라는 내장 함수를 사용한다.
 
-## 정리
+<br/>
+
+## 6. 정리
 
 반복되는 데이터를 렌더링 하는 방법을 배웠고 이를 응용하여 유동적인 배열을 다루었다. 컴포넌트 배열을 렌더링할 때는 key값 설정에 항상 주의해야 한다. 또 key 값은 언제나 유일해야 한다. key값이 중복된다면 렌더링 과정에서 오류가 발생한다.  
 배열에 직접 접근하는 것이 아닌 `concat`, `filter`등 배열 내장 함수를 사용하여 새로운 배열을 만든 후 이를 새로운 상태로 설정해줘야 한다.
+
+<br/>
 
 # 7. 컴포넌트 라이프 사이클
 
@@ -526,6 +532,8 @@ filter라는 내장 함수를 사용한다.
   3.언마운트
   마운트의 반대과정. 즉 컴포넌트를 DOM에서 제거하는 것을 언마운트라고 한다.
 
+<br/>
+
 ## render함수
 
 `render(){...}`
@@ -536,6 +544,8 @@ DOM정보를 가져오거나 state에 변화를 줄때는 `componentDidMount`에
 ## Constructor
 
 이것은 컴포넌트의 생성자 메서드로 컴포넌트를 만들때 처음으로 실행됨. 초기 state설정 가능
+
+<br/>
 
 ## getDerivedStateFromProps 메서드
 
@@ -554,20 +564,30 @@ static getDerivedStateFromProps(nextProps, prevState) {
 
 컴포넌트를 만들고, 첫 렌더링을 다 마친후 실행. 다른 자바스크립트 라이브러리 또는 프레임 워크의 함수를 호출하거나 이벤트 등록, setTimeout,setInterval, 네트워크 요청 같은 비동기 작업을 처리한다.
 
+<br/>
+
 ## shouldComponentUpdate메서드
 
 이것은 props 또는 state를 변경했을 때, 리렌더링을 시작할지 여부를 지정하는 메서드입니다. true 혹은 false를 반환해야 한다. 컴포넌트를 만들 때 이 메서드를 따로 생성하지 않으면 기본적으로 true를 반환. 컴포넌트 최적화할때 주로 사용
 
+<br/>
+
 ## getSnapshotBeforeUpdate 메서드
+
+<br/>
 
 ## coponentDidUpdate 메서드
 
 `coponentDidUpdate(prevProps, prevState, snapshot)
 리렌더링을 완료한 후 실행. 업데이트가 끝난 직후이므로, DOM 관련 처리를 해도 무방. prev 인자들로 이전에 가졌던 데이터에 접근 가능.
 
+<br/>
+
 ## componentWillUnmount 메서드
 
 이것은 컴포넌트를 DOM에서 제거할 때 실행합니다. 등록한 이벤트,타이머, 직접 생성한 DOM이 있다면 여기서 제거 작업.
+
+<br/>
 
 ## componentDidCatch 메서드
 
@@ -586,9 +606,13 @@ componentDidCatch(error, info) {
 
 useState는 가장 기본적인 Hook이며, 함수형 컴포넌트에서도 가변적인 상태를 지닐 수 있게 해준다. 함수형 컴포넌트에서도 상태를 관리해야 한다면 이 Hook을 사용한다.
 
+<br/>
+
 ## 8.1 useState
 
 하나의 useState함수는 하나의 상태 값만 관리할 수 있다. 컴포넌트에서 관리해야 할 상태가 여러 개여도 관리할 수 있다.
+
+<br/>
 
 ## 8.2 useEffect
 
@@ -611,4 +635,139 @@ useEffect(() => {
 - 뒷정리 함수가 호출될 때는 업데이트되기 직전의 값을 보여준다.
   App.js에서 Info 컴포넌트를 visible 상태를 바꿨을때 return 되면서 상태를 변경함.
 
+<br/>
+
 ## 8.3 useReducer
+
+더 다양한 컴포넌트 상황에 따라 다양한 상태를 다른 값으로 업데이트해 주고 싶을 때 사용하는 Hook. 리듀서라는 개념은 리덕스와 더 자세히 배운다.(17장)  
+리듀서는 현재상태, 그리고 업데이트를 위해 필요한 정보를 담은 액션 값을 전달받아 새로운 상태를 반환하는 함수이다. 리듀서 함수에서 새로운 상태를 만들 때는 반드시 불변성을 지켜줘야 한다.
+
+- useReducer를 사용해서 다시 Counter 구현해보기
+
+* useReducer를 사용했을 때의 가장 큰 장점은 컴포넌트 업데이트 로직을 컴포넌트 바깥으로 빼낼 수 있다는 것이다.
+
+<br/>
+
+## 8.3.2 인풋상태 관리하기
+
+기존에는 인풋이 여러 개여서 useState를 여러번 사용했는데 useReducer를 사용하면 기존에 클래스형 컴포넌트에서 input태그에 name값을 할당하고 e.target.name을 참조하여 setState 해준 것과 유사한 방식으로 작업 처리 가능.
+
+```js
+import React, { useEffect, useReducer, useState } from 'react';
+
+function reducer(state, action) {
+	return {
+		...state,
+		[action.name]: action.value,
+	};
+}
+
+const Info = () => {
+	const [state, dispatch] = useReducer(reducer, {
+		name: '',
+		nickname: '',
+	});
+	const { name, nickname } = state;
+	const onChange = (e) => {
+		dispatch(e.target);
+	};
+	return (
+		<div>
+			<div>
+				<input name="name" onChange={onChange}></input>
+				<input name="nickname" onChange={onChange}></input>
+			</div>
+			<div>
+				<div>
+					<b>이름: </b> {name}
+				</div>
+				<div>
+					<b>닉네임: </b>
+					{nickname}
+				</div>
+			</div>
+		</div>
+	);
+};
+export default Info;
+```
+
+useReducer에서 액션은 그 어떤 값도 사용 가능하다. 이벤트 객체가 지니고 있는 e.target 값 자체를 액션 값으로 사용.
+
+<br/>
+
+## 8.4 useMemo
+
+함수형 컴포넌트 내부에서 발생하는 연산을 최적화 할 수 있다.
+리스트의 목록이 바뀔때만 getAverage가 호출된다.
+
+<br/>
+
+## 8.5 userCallback
+
+useMemo와 상당히 비슷한 함수. 주로 렌더링 성능을 최적화해야 하는 상황에서 사용. 이벤트 핸들러 함수를 필요할 때만 생성할 수 있다. 이전에 onChange와 onInsert라는 함수를 선언했는데 컴포넌트가 리렌더링 될 때마다 함수들이 새로 생성된다. 대부분 문제 없지만 컴포넌트의 렌더링이 자주 발생하거나 렌더링해야 할 컴포넌트의 개수가 많아지면 이 부분을 최적화 해주는 것이 좋다.  
+useEffect는 props의 업데이트, useCallback은 함수를 입력 받는다.
+
+<br/>
+
+## 8.6 useRef
+
+함수형 컴포넌트에서 ref를 더 쉽게 사용할 수 있게 해준다.  
+등록버튼을 눌렀을 때 포커스가 input으로 넘어가게 해준다.
+
+```js
+//useCallback, useMemo, useRef
+import React, { useState, useMemo, useRef, useCallback } from 'react';
+
+const getAverage = (numbers) => {
+	console.log('평균값 계산중..');
+	if (numbers.length === 0) return 0;
+	const sum = numbers.reduce((a, b) => a + b);
+	return sum / numbers.length;
+};
+
+const Average = () => {
+	const [list, setList] = useState([]);
+	const [number, setNumber] = useState('');
+	const inputEl = useRef(null);
+
+	const onChange = useCallback((e) => {
+		setNumber(e.target.value);
+	}, []); // 컴포넌트가 처음 렌더링 될 때만 함수 생성
+	const onInsert = useCallback(() => {
+		const nextList = list.concat(parseInt(number));
+		setList(nextList);
+		setNumber('');
+		inputEl.current.focus();
+	}, [number, list]); // number 혹은 list 가 바뀌었을 때만 함수 생성
+
+	const avg = useMemo(() => getAverage(list), [list]);
+
+	return (
+		<div>
+			<input value={number} onChange={onChange} ref={inputEl} />
+			<button onClick={onInsert}>등록</button>
+			<ul>
+				{list.map((value, index) => (
+					<li key={index}>{value}</li>
+				))}
+			</ul>
+			<div>
+				<b>평균값:</b> {avg}
+			</div>
+		</div>
+	);
+};
+
+export default Average;
+```
+
+- ref값이 바뀌어도 컴포넌트는 렌더링되지 않는다.
+
+## 8.8 Hook 커스터마이징
+
+## 8.9 정리
+
+# 9. 컴포넌트 스타일링
+
+## 9.1 가장흔한방식, 일반 css
