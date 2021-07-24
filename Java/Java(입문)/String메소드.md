@@ -345,9 +345,3 @@ StringBuffer/StringBuilder replace(int start , int end , String s) : 일부분�
 StringBuffer/StringBuilder reverse() : 객체를 뒤집음
 
 StringBuffer/StringBuilder setCharAt(int index , char ch) : 주어진 문자를 치환함
-
-출처: https://seungkangmo.tistory.com/54 [Let's Get It]
-
-출처: https://seungkangmo.tistory.com/54 [Let's Get It]
-
-출처: https://seungkangmo.tistory.com/54 [Let's Get It]

@@ -771,3 +771,38 @@ export default Average;
 # 9. 컴포넌트 스타일링
 
 ## 9.1 가장흔한방식, 일반 css
+
+카카오톡 클론코딩
+
+## 9.2 Sass사용하기
+
+Sass(Syntatically Awesome Style Sheets) - ()문법적으로 매우 멋진 스타일시트)는 css전처리기로 복잡한 작업을 쉽게 할 수 있도록 해주고, 스타일 코드의 재활용성을 높여 줄 뿐만 아니라 코드의 가독성을 높여서 유지 보수를 더욱 쉽게 해준다. `.scss`, `.sass` 지원한다.
+
+```css
+/* .sass */
+$font-stack: Helvetica, sans-serif
+$primary-color:#333
+
+body
+	font:100% $font-statck
+	color: $primary-color
+```
+
+```css
+/* .scss */
+$font-stack: Helvetica, sans-serif;
+$primary-color:#333;
+
+body {
+	font:100% $font-statck
+	color: $primary-color
+}
+```
+
+`.sass`는 중괄호와 세미콜론을 사용하지 않는다. 반면 `.scss`확장자는 기존 css를 작성하는 방식과 비교해서 문법이 크게 다르지 않다.
+
+```
+yarn add node-sass
+```
+
+Sass를 css로 변환해주는 라이브러리
