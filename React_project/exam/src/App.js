@@ -3,15 +3,18 @@ import React ,{Component}from "react";
 // import ScrollBox from "./ScrollBox";
 //import EventPractice from "./EventPractice";
 //import ValidationSample from "./ValidationSample";
-// import LifeCycleSample from "./LifeCycleSample";
+import LifeCycleSample from "./LifeCycleSample";
 import SassComponent from "./SassComponent";
+import StyledComponent from "./StyledComponent";
+
 class App extends Component {
-	render(){
-		return (
-		<div>
-			<SassComponent></SassComponent>
-		</div>
-		);
-	}
+  render() {
+    return (
+      <div>
+        <StyledComponent />
+      </div>
+    );
+  }
 }
+
 export default App;
