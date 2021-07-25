@@ -826,3 +826,9 @@ CRA이랑은 5.0버전과 충돌이 난다. 따라서 낮은 버전을 설치해
 ## 9.4.1 Tagged 템플릿 리터럴
 
 ## 9.4.5 반응형 디자인
+
+# 10. Todo app 만들기
+
+## sass 인식 오류 해결
+
+https://github.com/velopert/learning-react/issues/311
