@@ -840,3 +840,47 @@ https://github.com/velopert/learning-react/issues/311
    `onsubmit`은 발생. `onclick`으로도 만들 순 있지만 `onkeypress`를 따로 작성해줘야한다.
 
 4. 삭제, 수정기능
+
+# 11. 컴포넌트 성능 최적화
+
+10장에서 학습한 지식을 활용해 일정 관리 애플리케이션을 만들어봤다. 현재까지는 불편하지 않지만 추가되어 있는 데이터가 매우 적기 때문이다. 그러나 데이터가 무수히 많아지면, 애플리케이션이 느려지는 것을 체감할 정도로 지연이 발생.
+기본값에 함수를 넣어주었다는 것. 만약 `useState(test())`라고 작성하면 리렌더링 될때매다 test가 호출되지만 `useState(test)`처럼 파라미터를 함수 형태로 넣어 주면 컴포넌트가 처음 렌더링될 때만 test함수가 실행이 된다.
+
+## 느려지는 원인 분석
+
+1. 자신이 전달받은 props가 변경될 때
+2. 자신의 state가 바뀔 때
+3. 부모 컴포넌트가 리렌더링될 때
+4. forceUpdate 함수가 실행될 때
+
+## 해결법
+
+1. React.memo를 사용하여 컴포넌트 성능 최적화
+   TodoListItem 컴포넌트에 props를 todo, onRemove,
+   onToggle을 받아오는데 export에 memo를 감싸주면 바뀌지 않으면 리렌더링을 하지 않는다.
+
+2. useState의 함수형 업데이트
+   setNumber(number+1)을 하는것이 아니라, 어떻게 업데이트를 할지 정의해 주는 업데이트 함수를 넣어준다. 그러면 useCallback을 사용할 때 두번째 파라미터로 넣는 배열에 number를 넣지 않아도 된다.
+   u
+
+```js
+const onToggle = useCallback((id) => {
+	setTodos((todos) =>
+		todos.map((todo) =>
+			todo.id === id ? { ...todo, checked: !todo.checked } : todo
+		)
+	);
+}, []);
+```
+
+## 11.5.2 useReducer 사용하기
+
+useState의 함수형 업데이트를 사용하는 대신, useReducer를 사용해도 onToggle과 onRemove가 계속 새로워지는 문제를 해결할 수 있다.
+
+## 11.6 불변성의 중요성
+
+## 11.7 TodoList 컴포넌트 최적화
+
+## 11.8 react-virtualized를 사용한 렌더링 최적화
+
+2500개의 컴포넌트가 렌더링 돼 있는데 화면에 보이는 것은 아홉개뿐이다. 하지만 다른 것이 렌더링 돼 있기에 시스템 자원 낭비이다. 따라서 필요한 부분만 렌더링 시킨다.
