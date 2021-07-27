@@ -904,3 +904,115 @@ const nextState = produce(originalState, (draft) => {
 produce라는 함수는 두가지 파라미터를 받는다. 첫번째 파라미터는 수정하고 싶은 상태이고 두번째 파라미터는 상태를 어떻게 업테이트할지 정의하는 함수이다. 두번째 파라미터로 전달되는 함수 내부에서 원하는 값을 변경하면, produce 함수가 불변성 유지를 대신해주면서 새로운 상태를 생성해준다.
 
 # 13. 리액트 라우터로 SPA 개발하기
+
+웹에서 제공되는 정보가 많기 때문에 새로운 화면을 보여주어야할때마다 서버측에서 모든 뷰를 준비한다면 성능상의 문제가 발생. 애플리케이션 내에서 화면 전환이 일어날 때마다 html을 계속 서버에 새로 요청하면 사용자의 인터페이스에서 사용하고 있던 상태를 유지하는 것도 번거롭고, 바뀌지 않는 부분까지 새로 불러와서 보여주어야하기 때문에 불필요한 로딩이 있어서 비효율적. 리액트 같은 라이브러리 혹은 프레임워크를 사용하여 뷰 렌더링을 사용자의 브라우저가 담당하도록 하고 애플리케이션을 브라우저에 불러와서 실행 후 사용자와의 인터랙션이 발생하면 필요한 부분만 자바스크립트를 사용하여 업데이트 해준다.
+제공하는 페이지는 한 종류이지만, 해당 페이지에서 로딩된 자바스크립트와 현재 사용자 브라우저의 주소 상태에 따라 다양한 화면을 보여 줄 수 있다.
+
+## SPA 단점
+
+앱의 규모가 커지면 자바스크립트 파일이 너무 커진다는 것. 페이지 로딩 시 사용자가 실제로 방문하지 않을 수도 있는 페이지의 스크립트도 불러오기 때문. **코드 스플리팅**을 사용해 라우트별로 파일들을 나누어 트래픽과 로딩속도를 개선할 수 있다.
+리액트 라우터처럼 브라우저에서 자바스크립트를 사용하여 라우팅을 관리하는 것은 자바스크립트를 사용하지 않는 일반 크롤러에서는 페이지의 정보를 제대로 수집해 가지 못한다는 잠재적인 단점이 있다.
+
+[ssr vs csr]
+(https://medium.com/@msj9121/next-js-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%95%8C%EA%B3%A0-%EC%93%B0%EC%9E%90-8727f76614c9)
+
+`<BroserRouter>`로 HTML5의 History API를 사용하여 페이지를 새로고침하지 않고도 주소를 변경하고 현재 주소에 관련된 정보를 props로 쉽게 조회하거나 사용할 수 있도록 한다.
+
+## 13.2.2 프로젝트에 라우터 적용
+
+index.js에서 <BrowserRouter> 컴포넌트로 감싸준다.
+그리고 App.js에서 <Route>로 경로 설정을 해준다.
+`/about`으로 들어가면 `/` 일때의 결과값도 같이 나오는데 `/`가 중복으로 인식된다. `exact={true}`로 해결한다.
+`<Route path="/" component={Home} exact={true}>
+
+## 13.2.5 Link컴포넌트를 사용하여 다른 주소로 이동
+
+리액트 라우터를 사용할때는 a태그를 사용하면 안된다. 사용하면 가지고 있던 상태들을 모두 날리고 렌더링된 컴포넌트들도 모두 사라지기에 처음부터 렌더링하게 된다.
+History API를 사용하여 페이지의 주소만 변경해준다.
+Link자체는 a태그로 이루어져 있지만, 페이지 전환을 방지하는 기능이 내장되어 있다.
+`<Link to="주소">내용</Link>`
+
+## 13.3 Route 하나에 여러 개의 path 설정하기
+
+`<Route path={['/about', '/info']} component={About}></Route>`
+
+## 13.4 URL파라미터와 쿼리
+
+```js
+import React from 'react';
+
+const data = {
+	user: {
+		id: 'minsoftk',
+		pwd: 1234,
+	},
+	user2: {
+		id: 'minsungk',
+		pwd: '12',
+	},
+};
+
+const Profile = ({ match }) => {
+	const { userid } = match.params;
+	console.log({ userid });
+	//match안의 params 값을 참조
+	console.log(data[userid]);
+	const info = data[userid];
+	if (!info) {
+		return <div>존재하지 않는 사용자입니다.</div>;
+	}
+	return (
+		<div>
+			<h3>
+				{userid}({info.id})
+			</h3>
+			<p>{info.pwd}</p>
+		</div>
+	);
+};
+export default Profile;
+```
+
+`<Route path="/profile/:userid" component={Profile}></Route>` 이런식으로 :userid를 넘겨준다.
+`<Link to="/profile/user2">minsungk 계정</Link>` 그럼 user2가 넘어가고 data에서 user2의 객체를 참조한다.
+
+match라는 객체안의 params값을 참조한다. match객체 안에는 현재 컴포넌트가 어떤 경로 규칙에 의해 보이는지에 대한 정보가 들어 있다. `/profile/:userid` 이렇게 설정하면 match.params.userid값을 통해 현재 userid값을 조회할 수 있다.
+
+## 13.4.2 URL쿼리
+
+location객체에 있는 search값에서 조회 가능하다. location 객체는 라우트로 사용된 컴포넌트에게 props로 전달되며, 웹 애플리케이션의 현재 주소에 대한 정보를 지니고 있다.
+
+```js
+{
+	"pathname":"/about",
+	"search": "?detail=true",
+	"hash": ""
+}
+```
+
+serach값에서 특정 값을 읽어오기 위해서는 이 문자열을 객체 형태로 변환해야 한다.
+쿼리 문자열을 객체로 변환할때는 qs라는 라이브러리 이용한다.
+
+## 13.5 서브 라우트
+
+라우트 내부에 또 라우트를 정의하는 것.
+
+```js
+<Route
+	path="/profiles"
+	exact
+	render={() => <div>사용자를 선택해주세요.</div>}></Route>
+<Route path="/profiles/:userid" component=			{Profile}></Route>
+```
+
+보여주고 싶은 JSX를 넣어줄 수 있다.
+
+## 13.6 리액트 라우터 부가 기능
+
+history 객체는 라우트로 사용된 컴포넌트에 match, location과 함께 전달되는 props중 하나로, 이 객체를 통해 컴포넌트 내에 구현하는 메서드에서 라우터 api를 호출 할 수 있다. 특정 버튼을 눌렀을 때 뒤로 가거나, 로그인 후 화면을 전환하거나, 다른 페이지로 이탈하는 것을 방지해야할 때 history를 활용한다.
+
+## 13.6.2 withRouter
+
+## 13.7 정리
+
+웹 브라우저에서 사용할 컴포넌트, 상태 관리를 하는 로직, 그 외 여러 기능을 구현하는 함수들이 점점 쌓이면서 자바스크립트 파일의 크기가 매우 커진다. 코드 스플리팅을 통해서 해결한다.
