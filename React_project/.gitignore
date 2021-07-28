@@ -5,3 +5,6 @@ todo-app/node_modules
 exam/node_modules
 hooks-tutorial/node_modules
 router-tutorial/node_modules
+news-viewer/node_modules
+context-tutorial/node_modules
+redux-tutorial/node_modules
