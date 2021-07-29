@@ -3,7 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import loadable from '@loadable/component';
 
-const Split = React.lazy(() => import('./Split'));
+const Split = loadable(() => import('./Split'), {
+	fallback: <div>loading...</div>,
+});
+
 const App = () => {
 	const [visible, setVisible] = useState(false);
 	const onClick = () => {
@@ -19,9 +22,8 @@ const App = () => {
 			<p onClick={onClick} hover="point">
 				Edit <code>src/App.js</code> and save to reload.
 			</p>
-			<Suspense fallback={<div>loading...</div>}>
-				{visible && <Split></Split>}
-			</Suspense>
+			{visible && <Split></Split>}
+
 			<p onClick={onDelete}>없애기</p>
 		</div>
 	);
