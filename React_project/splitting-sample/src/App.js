@@ -11,7 +11,9 @@ const App = () => {
 	const [visible, setVisible] = useState(false);
 	const onClick = () => {
 		setVisible(true);
-		alert();
+	};
+	const onMouseOver = () => {
+		Split.preload();
 	};
 	const onDelete = () => {
 		setVisible(false);
@@ -19,7 +21,7 @@ const App = () => {
 	return (
 		<div className="App">
 			<img src={logo} className="App-logo" alt="logo" />
-			<p onClick={onClick} hover="point">
+			<p onClick={onClick} onMouseOver={onMouseOver}>
 				Edit <code>src/App.js</code> and save to reload.
 			</p>
 			{visible && <Split></Split>}
