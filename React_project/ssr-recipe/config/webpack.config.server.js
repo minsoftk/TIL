@@ -1,4 +1,7 @@
+const nodeExternals = require('webpack-node-externals');
 const paths = require('./paths');
+const webpack = require('webpack');
+const getClientEnvironment = require('./env');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 
 const cssRegex = /\.css$/;
@@ -6,15 +9,17 @@ const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 
+const env = getClientEnvironment(paths.publicUrlOrPath.slice(0, -1));
+
 module.exports = {
-	mode: 'production', //프로덕션 모드로 최적화 옵션들을 활성화
+	mode: 'production',
 	entry: paths.ssrIndexJs,
-	target: 'node', //node 환경에서 실행될 것이라는 점 명시
+	target: 'node',
 	output: {
-		path: paths.ssrBuild, //빌드경로
-		filename: 'server.js', //파일이름
-		chunkFilename: 'js/[name].chunk.js', //청크파일이름
-		publicPath: paths.servedPath, //정적파일이 제공될 경로
+		path: paths.ssrBuild,
+		filename: 'server.js',
+		chunkFilename: 'js/[name].chunk.js',
+		publicPath: paths.publicUrlOrPath,
 	},
 	module: {
 		rules: [
@@ -30,13 +35,22 @@ module.exports = {
 							customize: require.resolve(
 								'babel-preset-react-app/webpack-overrides'
 							),
+							presets: [
+								[
+									require.resolve('babel-preset-react-app'),
+									{
+										runtime: 'automatic',
+									},
+								],
+							],
 							plugins: [
 								[
 									require.resolve('babel-plugin-named-asset-import'),
 									{
 										loaderMap: {
 											svg: {
-												ReactComponent: '@svgr/webpack?-svgo![path]',
+												ReactComponent:
+													'@svgr/webpack?-svgo,+titleProp,+ref![path]',
 											},
 										},
 									},
@@ -47,7 +61,6 @@ module.exports = {
 							compact: false,
 						},
 					},
-
 					// CSS 를 위한 처리
 					{
 						test: cssRegex,
@@ -55,7 +68,10 @@ module.exports = {
 						//  exportOnlyLocals: true 옵션을 설정해야 실제 css 파일을 생성하지 않습니다.
 						loader: require.resolve('css-loader'),
 						options: {
-							exportOnlyLocals: true,
+							importLoaders: 1,
+							modules: {
+								exportOnlyLocals: true,
+							},
 						},
 					},
 					// CSS Module 을 위한 처리
@@ -63,9 +79,11 @@ module.exports = {
 						test: cssModuleRegex,
 						loader: require.resolve('css-loader'),
 						options: {
-							modules: true,
-							exportOnlyLocals: true,
-							getLocalIdent: getCSSModuleLocalIdent,
+							importLoaders: 1,
+							modules: {
+								exportOnlyLocals: true,
+								getLocalIdent: getCSSModuleLocalIdent,
+							},
 						},
 					},
 					// Sass 를 위한 처리
@@ -76,7 +94,10 @@ module.exports = {
 							{
 								loader: require.resolve('css-loader'),
 								options: {
-									exportOnlyLocals: true,
+									importLoaders: 3,
+									modules: {
+										exportOnlyLocals: true,
+									},
 								},
 							},
 							require.resolve('sass-loader'),
@@ -90,9 +111,11 @@ module.exports = {
 							{
 								loader: require.resolve('css-loader'),
 								options: {
-									modules: true,
-									exportOnlyLocals: true,
-									getLocalIdent: getCSSModuleLocalIdent,
+									importLoaders: 3,
+									modules: {
+										exportOnlyLocals: true,
+										getLocalIdent: getCSSModuleLocalIdent,
+									},
 								},
 							},
 							require.resolve('sass-loader'),
@@ -126,4 +149,12 @@ module.exports = {
 	resolve: {
 		modules: ['node_modules'],
 	},
+	externals: [
+		nodeExternals({
+			allowlist: [/@babel/],
+		}),
+	],
+	plugins: [
+		new webpack.DefinePlugin(env.stringified), // 환경변수를 주입해줍니다.
+	],
 };
