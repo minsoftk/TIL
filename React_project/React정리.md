@@ -1107,3 +1107,30 @@ ssr을 사용하면 데이터 미리 불러오기, 코드 스플리팅과의 호
 ## 20.1.3 서버 사이드 렌더링과 코드 스플리팅 충돌
 
 Route에 내용을 집어넣는 실수함. css 오탈자
+
+## 20.3 서버 사이드 렌더링 구현하기
+
+서버 사이드 렌더링을 구현하려면 웹팩 설정을 커스터마이징 해야 한다. cra로 만든 프로젝트에서는 웹팩 관련 설정이 기본적으로 모두 숨겨져 있다. `yarn eject`를 통해 밖으로 꺼내 준다.
+
+## 20.3.1 서버 사이드 렌더링용 엔트리 만들기
+
+엔트리란 웹팩에서 프로젝트를 불러올때 가장 먼저 불러오는 파일. index.server.js라는 파일을 생성. 이후
+
+```js
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+
+const html = ReactDOMServer.renderToString(
+	<div>Hello Server Side Rendering</div>
+);
+console.log(html);
+```
+
+이후 config-path.js에서 2줄을 추가해준다.
+
+```js
+//불러올 파일의 경로
+	ssrIndexJs: resolveApp('src/index.server.js'),
+//웹팩으로 처리한 뒤 결과물을 저장할 경로
+	ssrBuild: resolveApp('dist'),
+```
