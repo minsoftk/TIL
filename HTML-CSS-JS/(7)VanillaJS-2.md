@@ -1,20 +1,22 @@
 ## JS에 대하여
+
 ```ruby
 1   let a=221;
 2   let b= a-5;
 3   console.log(b);
 
-지켜야할 규칙이 있다 
+지켜야할 규칙이 있다
 한줄씩 적어야 한다.
 이것을 Lines라 하지만
 Expressions이라고 부른다. 모든 expression은 한줄을 가져야 한다.
 ```
 
-* const란? constant 상수 변하지 않는 값.
+- const란? constant 상수 변하지 않는 값.
 
-* Array란? 리스트,배열 
-> [ braket으로 감싼다.]
-* Object란?
+- Array란? 리스트,배열
+  > [ braket으로 감싼다.]
+- Object란?
+
 ```ruby
 culy braket으로 감싼다. {}
 const min={
@@ -26,22 +28,24 @@ const min={
  console.log(min.gender);
  min.gender:"female";
  console.log(min.gender);
- 
- const min의 내용은 바뀌지만 min은 바뀌지 않는다. Array에 Object를 넣을 수 있다.
- ```
 
- * JS에선 "" 도 스트링이고 '' 도 스트링이다.
- * 그런데 너무 지겨워서 백틱(`)을 생각해냈다.
- ```ruby
- function say(name,age){
-     console.log(`Hello ${name} you are ${age} years old`);
- }
+ const min의 내용은 바뀌지만 min은 바뀌지 않는다. Array에 Object를 넣을 수 있다.
+```
+
+- JS에선 "" 도 스트링이고 '' 도 스트링이다.
+- 그런데 너무 지겨워서 백틱(`)을 생각해냈다.
+
+```ruby
+function say(name,age){
+    console.log(`Hello ${name} you are ${age} years old`);
+}
 
 say("min",29);
 기존의 "",''를 쓰는 것보다 훨씬 효율적이다.
 ```
 
-* 이제 return을 사용한다.
+- 이제 return을 사용한다.
+
 ```ruby
  function say(name,age){
      return (`Hello ${name} you are ${age} years old`);
@@ -49,9 +53,11 @@ say("min",29);
 const greet=say("min",29);
 console.log(greet)
 ```
-*return이 greet에 들어간다.
 
-* 우리만의 객체를 만들어보자.
+- return이 greet에 들어간다.
+
+- 우리만의 객체를 만들어보자.
+
 ```ruby
 const cal={
     plus:function(a,b){
@@ -60,3 +66,17 @@ const cal={
 }
 cal.plus(5,5);
 ```
+
+# Conditionals
+
+```js
+const age = prompt('how old are you?');
+//실행하는 순간 자바스크립트는 응답을 기다리고 있다. 그래서 잘 안쓴다.
+
+//타입을 확인하는 법
+console.log(typeof age);
+
+//타입을 바꾸는 법
+```
+
+자바스크립트가 HTML과 연결돼 있기 때문에 HTML의 정보를 가져올 수 있다.
