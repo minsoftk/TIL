@@ -1,19 +1,14 @@
-const title = document.querySelector('#title');
-
-console.dir(title);
-
-title.style.color = 'red';
+const title = document.querySelector('h1');
 
 function handleTitleClick() {
-	console.log('title was click');
-	const curColor = title.style.color;
-	let newColor;
-	if (curColor == 'blue') newColor = 'red';
-	else newColor = 'blue';
-	title.style.color = newColor;
+	const clickedClass = 'clicked';
+	if (title.className === clickedClass) {
+		title.className = '';
+	} else {
+		title.className = clickedClass;
+	}
 }
 title.addEventListener('click', handleTitleClick);
-
 // //event 함수 작성
 // function handleTitlemousein() {
 // 	console.log('mouse is in!');
