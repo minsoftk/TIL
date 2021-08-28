@@ -1,6 +1,6 @@
 # 1. 왜 React가 필요한가?
 
-모바일 App처럼 스무스하게 동작하는 웹들. 일명 Web App처럼 동작하게 만들기 위해서. 새로고침없이 웹 탐색이 가능하게 한다. 앱이랑 사용성이 비슷하기 때문에 웹 앱이라고 한다. 웹 앱을 쉽게 만들기 위해 React를 사용한다. 
+모바일 App처럼 스무스하게 동작하는 웹들. 일명 Web App처럼 동작하게 만들기 위해서. 새로고침없이 웹 탐색이 가능하게 한다. 앱이랑 사용성이 비슷하기 때문에 웹 앱이라고 한다. 웹 앱을 쉽게 만들기 위해 React를 사용한다.
 
 ## 장점?
 
@@ -14,8 +14,6 @@
 ## 단점?
 
 View만을 강조했기에 그 이외의 기능은 직접구현을 하거나 써드파티 라이브러리를 이용해야 한다.
-
-
 
 ## nodejs를 왜 설치해야하나?
 
@@ -51,16 +49,12 @@ function App() {
 }
 ```
 
-
-
 ```react
 <div className="black-nav" style={{color : 'blue', fontSize:'30px'}}>개발 블로그</div>
 //자바스크립트에선 '-'가 빼기로 인식되기 때문에 CamelCase작성법을 따른다. 또한 JSX방식으로 object형식으로 입력해준다.
 ```
 
 <br/>
-
-
 
 ### 4. State
 
@@ -70,9 +64,9 @@ useState를 쓰면 array가 만들어진다. [a,b]처럼 만들어진다. a는 �
 let [a,b] = useState('남자 코트 추천'); //문자,숫자, array, object에 담긴 값을 쉽게 바꾸고 싶을때
 ```
 
-### 왜 변수대신 state를 쓰는가? 
+### 왜 변수대신 state를 쓰는가?
 
-* 웹이 App처럼 동작하게 만들고 싶어서, State는 변경되면 HTML이 자동으로 재렌더링이 된다. 하지만 그냥 변수들은 렌더링 되지 않는다. 자주 바뀌는, 중요한 데이터는 변수말고 state로 만들것.
+- 웹이 App처럼 동작하게 만들고 싶어서, State는 변경되면 HTML이 자동으로 재렌더링이 된다. 하지만 그냥 변수들은 렌더링 되지 않는다. 자주 바뀌는, 중요한 데이터는 변수말고 state로 만들것.
 
 ### 함수
 
@@ -94,12 +88,10 @@ let [a,b] = useState('남자 코트 추천'); //문자,숫자, array, object에 
 		setPost(newPost);
 	};
 
-//let newPost = [...post]; 스프레드 연산자를 써줘야 deep copy가 된다. deep카피란 값을 공유하는 것이 아니라 새로운 복사본을 생성한다. spread operator는 es6 새로운 문법. 중괄호를 제거하고 새로운 중괄호에 담는다는 의미. 일종의 테크닉. 
+//let newPost = [...post]; 스프레드 연산자를 써줘야 deep copy가 된다. deep카피란 값을 공유하는 것이 아니라 새로운 복사본을 생성한다. spread operator는 es6 새로운 문법. 중괄호를 제거하고 새로운 중괄호에 담는다는 의미. 일종의 테크닉.
 ```
 
 리액트의 원칙인 immutable data를 지키기 위해서 사용한다. state를 직접 건들면 안된다.(렌더링이 안될수도)
-
-
 
 ### 5. Modal 만드는 법
 
@@ -126,8 +118,6 @@ function Modal() {
 }
 (...)
 ```
-
-
 
 ### 6. 반복문 쓰는법
 
@@ -158,8 +148,6 @@ function 반복된UI(){
 }
 { 반복된 UI() } //react에서 반복문 돌리는 방법
 ```
-
-
 
 ```react
 /* eslint-disable */
@@ -192,10 +180,10 @@ function App() {
 						<h4>
 							{title} <span onClick={thumbClick}>👍</span> {thumb}
 						</h4>
-						
+
                         이 부분에 thumb 값을 어떻게 넘겨주지?
-                        
-                        
+
+
 						<p>{date}</p>
 						<button onClick={() => setModal(!modal)}>모달창</button>
 						{modal ? <Modal></Modal> : null}
@@ -222,4 +210,3 @@ export default App;
 ```
 
 ### 7. 현재는 class를 거의 쓰지 않는다.
-
