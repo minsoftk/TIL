@@ -62,7 +62,7 @@ print(SelfTest.function1())
 # 클래스 변수 , 인스턴스 변수
 
 class Warehouse:
-    # 클래스 변수
+    # 클래스 변수 : 인스턴스들이 모두 공유한다.
     stock_num = 0
 
     def __init__(self, name):
