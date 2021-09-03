@@ -39,7 +39,7 @@ print(user1.name)
 # self의 이해
 
 class SelfTest:
-    def function1():
+    def function1():  # self가 없기 때문에 인스턴스로 호출할 수 없다. 클래스까지 써서 함수를 호출해야함.
         print("function1 called!")
 
     def function2(self):
