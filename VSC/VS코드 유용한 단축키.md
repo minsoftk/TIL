@@ -17,3 +17,5 @@
 8. Ctrl + b 사이드바 토글
 
 9. Ctrl + Shift + e 사이드바 . 탐색기
+
+10. Ctrl + Shift + t 닫은탭 다시 열기
