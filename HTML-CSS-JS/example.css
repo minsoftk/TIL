@@ -1,0 +1,19 @@
+div {
+	height: 200px;
+	border: solid;
+}
+
+/* 코드상으론 존재하지만 아예 요소 자체를 사라지게 만든다. */
+.box2 {
+	visibility: hidden;
+}
+
+.box1 {
+	background-color: darkorange;
+}
+.box2 {
+	background-color: greenyellow;
+}
+.box3 {
+	background-color: dodgerblue;
+}
