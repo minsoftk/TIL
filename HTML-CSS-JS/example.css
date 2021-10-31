@@ -1,31 +1,20 @@
-div {
-	width: 200px;
-	height: 200px;
-	border: solid 1px red;
+.container {
+	border: 5px dashed orange;
+
+	display: grid;
+	/* 화면이 줄어들거나 늘어날 때 자동으로 채워준다. */
+	grid-template-columns: repeat(auto-fill, 100px);
+	/* 암시적으로 auto-fill로 새로 row가 생겨도 크기를 똑같이 지정해준다. */
+	grid-auto-rows: 50px;
 }
 
-/* 일반적으로 absolute를 줄 부모에게 relative를 준다. 
-relative가 자기 자신이 기준이기 떄문! 
+.item {
+	background-color: paleturquoise;
+	border: 3px solid blue;
+}
+
+/*
+
+minmax(min, max)
+
 */
-#parent {
-	position: sticky;
-	/* top: 100px;
-	left: 100px; */
-	/* top을 설정해도 동작하지 않아 이해가 안갈 수도 있지만 스크롤을 해보면 알게 된다. */
-	/* top, left 100px이 되면 그 위치에 고정된다. */
-}
-#box {
-	width: 100px;
-	height: 100px;
-	border-color: darkblue;
-	border-radius: 30px;
-}
-#test {
-	position: sticky;
-	top: 100px;
-	left: 100px;
-	width: 100px;
-	height: 100px;
-	border-color: darkblue;
-	border-radius: 30px;
-}
